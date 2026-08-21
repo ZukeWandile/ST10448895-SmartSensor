@@ -36,39 +36,69 @@
                                FontSize="14" VerticalAlignment="Center" Margin="12,0,0,0"/>
                 </StackPanel>
 
-                <!-- Navigation Links -->
+                <!-- Navigation Links (Converted to Buttons) -->
                 <StackPanel Grid.Row="1">
 
-                    <!-- Active Menu Item: Sensor Ingestion -->
-                    <Border Background="#102338" BorderBrush="#38BDF8" BorderThickness="2,0,0,0" Padding="20,12">
-                        <StackPanel Orientation="Horizontal">
-                            <Ellipse Width="12" Height="12" Stroke="#38BDF8" StrokeThickness="2.5" Margin="0,0,12,0" VerticalAlignment="Center"/>
-                            <TextBlock Text="Sensor ingestion" Foreground="#FFFFFF" FontSize="14" FontWeight="SemiBold"/>
-                        </StackPanel>
-                    </Border>
+                    <!-- Active Nav Button: Sensor Ingestion -->
+                    <Button Name="BtnSensorIngestion" Cursor="Hand" Click="NavButton_Click">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="#102338" BorderBrush="#38BDF8" BorderThickness="2,0,0,0" Padding="20,12">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Ellipse Width="12" Height="12" Stroke="#38BDF8" StrokeThickness="2.5" Margin="0,0,12,0" VerticalAlignment="Center"/>
+                                        <TextBlock Text="Sensor ingestion" Foreground="#FFFFFF" FontSize="14" FontWeight="SemiBold"/>
+                                    </StackPanel>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
 
-                    <!-- Menu Item: Live Telemetry -->
-                    <Border Background="Transparent" Padding="20,12" Cursor="Hand">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="⚡" Foreground="#94A3B8" FontSize="12" Margin="0,0,12,0" VerticalAlignment="Center"/>
-                            <TextBlock Text="Live telemetry" Foreground="#94A3B8" FontSize="14"/>
-                        </StackPanel>
-                    </Border>
+                    <!-- Nav Button: Live Telemetry -->
+                    <Button Name="BtnLiveTelemetry" Cursor="Hand" Click="NavButton_Click">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border x:Name="border" Background="Transparent" Padding="20,12">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="⚡" Foreground="#94A3B8" FontSize="12" Margin="0,0,12,0" VerticalAlignment="Center"/>
+                                        <TextBlock x:Name="txt" Text="Live telemetry" Foreground="#94A3B8" FontSize="14"/>
+                                    </StackPanel>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="border" Property="Background" Value="#0D1D2D"/>
+                                        <Setter TargetName="txt" Property="Foreground" Value="#FFFFFF"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
 
-                    <!-- Menu Item: Motion Scanner -->
-                    <Border Background="Transparent" Padding="20,12" Cursor="Hand">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="⌖" Foreground="#94A3B8" FontSize="14" Margin="0,0,12,0" VerticalAlignment="Center"/>
-                            <TextBlock Text="Motion scanner" Foreground="#94A3B8" FontSize="14"/>
-                        </StackPanel>
-                    </Border>
+                    <!-- Nav Button: Motion Scanner -->
+                    <Button Name="BtnMotionScanner" Cursor="Hand" Click="NavButton_Click">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border x:Name="border" Background="Transparent" Padding="20,12">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="⌖" Foreground="#94A3B8" FontSize="14" Margin="0,0,12,0" VerticalAlignment="Center"/>
+                                        <TextBlock x:Name="txt" Text="Motion scanner" Foreground="#94A3B8" FontSize="14"/>
+                                    </StackPanel>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="border" Property="Background" Value="#0D1D2D"/>
+                                        <Setter TargetName="txt" Property="Foreground" Value="#FFFFFF"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
 
                 </StackPanel>
 
                 <!-- Sign Out Button (Bottom Left Corner) -->
-                <Button Grid.Row="2" Content="Sign out" Height="38" Margin="20,0"
+                <Button Grid.Row="2" Name="BtnSignOut" Content="Sign out" Height="38" Margin="20,0"
                         Background="#1E293B" Foreground="#F8FAFC" 
-                        FontWeight="SemiBold" FontSize="13" Cursor="Hand">
+                        FontWeight="SemiBold" FontSize="13" Cursor="Hand" Click="BtnSignOut_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="4"/>

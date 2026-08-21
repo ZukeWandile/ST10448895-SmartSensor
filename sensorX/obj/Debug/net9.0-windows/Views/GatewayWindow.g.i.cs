@@ -61,7 +61,7 @@ namespace sensorX.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/sensorX;V1.0.0.0;component/views/gatewaywindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/sensorX;component/views/gatewaywindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\GatewayWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

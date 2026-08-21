@@ -25,3 +25,17 @@ C:\Users\wzuke\Downloads\ST10448895-SmartSensor\sensorX\obj\Debug\net9.0-windows
 C:\Users\wzuke\Downloads\ST10448895-SmartSensor\sensorX\obj\Debug\net9.0-windows\sensorX.pdb
 C:\Users\wzuke\Downloads\ST10448895-SmartSensor\sensorX\obj\Debug\net9.0-windows\sensorX.genruntimeconfig.cache
 C:\Users\wzuke\Downloads\ST10448895-SmartSensor\sensorX\obj\Debug\net9.0-windows\ref\sensorX.dll
+C:\Users\wzuke\Downloads\ST10448895-SmartSensor\sensorX\obj\Debug\net9.0-windows\sensorX.csproj.AssemblyReference.cache
+C:\Users\wzuke\Downloads\ST10448895-SmartSensor\sensorX\obj\Debug\net9.0-windows\Views\MotionScannerWindow.g.cs
+C:\Users\wzuke\Downloads\ST10448895-SmartSensor\sensorX\obj\Debug\net9.0-windows\Views\SensorDashBoard.g.cs
+C:\Users\wzuke\Downloads\ST10448895-SmartSensor\sensorX\obj\Debug\net9.0-windows\Views\SensorWindow.g.cs
+C:\Users\wzuke\Downloads\ST10448895-SmartSensor\sensorX\obj\Debug\net9.0-windows\Views\TelemetryWindow.g.cs
+C:\Users\wzuke\Downloads\ST10448895-SmartSensor\sensorX\bin\Debug\net9.0-windows\Microsoft.OpenApi.dll
+C:\Users\wzuke\Downloads\ST10448895-SmartSensor\sensorX\bin\Debug\net9.0-windows\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\wzuke\Downloads\ST10448895-SmartSensor\sensorX\bin\Debug\net9.0-windows\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\wzuke\Downloads\ST10448895-SmartSensor\sensorX\bin\Debug\net9.0-windows\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\wzuke\Downloads\ST10448895-SmartSensor\sensorX\obj\Debug\net9.0-windows\Views\MotionScannerWindow.baml
+C:\Users\wzuke\Downloads\ST10448895-SmartSensor\sensorX\obj\Debug\net9.0-windows\Views\SensorDashBoard.baml
+C:\Users\wzuke\Downloads\ST10448895-SmartSensor\sensorX\obj\Debug\net9.0-windows\Views\SensorWindow.baml
+C:\Users\wzuke\Downloads\ST10448895-SmartSensor\sensorX\obj\Debug\net9.0-windows\Views\TelemetryWindow.baml
+C:\Users\wzuke\Downloads\ST10448895-SmartSensor\sensorX\obj\Debug\net9.0-windows\sensorX.csproj.Up2Date

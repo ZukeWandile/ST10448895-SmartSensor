@@ -8,10 +8,19 @@
     <Compile Update="Views\LoginWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\MotionScannerWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\SensorDashBoard.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\SensorWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\SignUpWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TelemetryWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

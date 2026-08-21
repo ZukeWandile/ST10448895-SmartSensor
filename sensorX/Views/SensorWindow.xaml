@@ -1,0 +1,212 @@
+﻿<Window x:Class="sensorX.Views.SensorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:sensorX.Views"
+        mc:Ignorable="d"
+        Title="Smart-X - Sensor Registration" 
+        Height="720" Width="1150"
+        WindowStartupLocation="CenterScreen"
+        Background="#08101C">
+
+    <Grid Margin="30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header (Row 0) -->
+        <Grid Grid.Row="0" Margin="0,0,0,25">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="Sensor Registration"
+                           FontSize="28"
+                           FontWeight="Bold"
+                           Foreground="#FFFFFF"/>
+                <TextBlock Text="Register Smart-X sensors and manage connected devices."
+                           Margin="0,5,0,0"
+                           FontSize="14"
+                           Foreground="#94A3B8"/>
+            </StackPanel>
+
+            <Button x:Name="btnBack"
+                    Grid.Column="1"
+                    Content="Back"
+                    Width="100"
+                    Height="36"
+                    VerticalAlignment="Top"
+                    Background="#1E293B"
+                    Foreground="#FFFFFF"
+                    BorderThickness="0"
+                    FontWeight="SemiBold"
+                    Cursor="Hand"
+                    Click="btnBack_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+
+        <!-- Main Content Area (Row 1) -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="380"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- LEFT COLUMN: REGISTRATION FORM -->
+            <Border Grid.Column="0" 
+                    Background="#0C1623" 
+                    CornerRadius="8" 
+                    BorderBrush="#1E293B" 
+                    BorderThickness="1" 
+                    Padding="25"
+                    VerticalAlignment="Top"
+                    Margin="0,0,15,0">
+
+                <StackPanel>
+                    <TextBlock Text="Register Sensor" 
+                               FontSize="20" 
+                               FontWeight="Bold" 
+                               Foreground="#FFFFFF" 
+                               Margin="0,0,0,20"/>
+
+                    <!-- MAC Address -->
+                    <TextBlock Text="MAC Address" FontSize="12" FontWeight="SemiBold" Foreground="#94A3B8" Margin="0,0,0,5"/>
+                    <TextBox x:Name="txtMacAddress" Height="38" Padding="10,8" FontSize="13" 
+                             Background="#162334" Foreground="#FFFFFF" BorderBrush="#1E293B" BorderThickness="1" Margin="0,0,0,15"/>
+
+                    <!-- Location -->
+                    <TextBlock Text="Location" FontSize="12" FontWeight="SemiBold" Foreground="#94A3B8" Margin="0,0,0,5"/>
+                    <TextBox x:Name="txtLocation" Height="38" Padding="10,8" FontSize="13" 
+                             Background="#162334" Foreground="#FFFFFF" BorderBrush="#1E293B" BorderThickness="1" Margin="0,0,0,15"/>
+
+                    <!-- Category Dropdown -->
+                    <TextBlock Text="Category" FontSize="12" FontWeight="SemiBold" Foreground="#94A3B8" Margin="0,0,0,5"/>
+                    <ComboBox x:Name="cmbCategory" Height="38" FontSize="13" Margin="0,0,0,15" VerticalContentAlignment="Center"
+                              Background="#162334" Foreground="#FFFFFF" BorderBrush="#1E293B">
+                        <ComboBoxItem Content="Environmental" IsSelected="True"/>
+                        <ComboBoxItem Content="Occupancy"/>
+                        <ComboBoxItem Content="Temperature"/>
+                        <ComboBoxItem Content="Motion"/>
+                    </ComboBox>
+
+                    <!-- Node ID -->
+                    <TextBlock Text="Node ID" FontSize="12" FontWeight="SemiBold" Foreground="#94A3B8" Margin="0,0,0,5"/>
+                    <TextBox x:Name="txtNodeId" Height="38" Padding="10,8" FontSize="13" 
+                             Background="#162334" Foreground="#FFFFFF" BorderBrush="#1E293B" BorderThickness="1" Margin="0,0,0,20"/>
+
+                    <!-- Action Buttons -->
+                    <Button x:Name="btnGenerateRandom" 
+                            Content="Generate Random" 
+                            Height="38" 
+                            Background="#162334" 
+                            Foreground="#38BDF8" 
+                            FontWeight="Bold" 
+                            BorderBrush="#1E293B"
+                            BorderThickness="1" 
+                            Cursor="Hand"
+                            Margin="0,0,0,10"
+                            Click="BtnGenerateRandom_Click">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="4"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+
+                    <Button x:Name="btnRegisterSensor" 
+                            Content="Register Sensor" 
+                            Height="42" 
+                            Background="#38BDF8" 
+                            Foreground="#0F172A" 
+                            FontWeight="Bold" 
+                            BorderThickness="0" 
+                            Cursor="Hand"
+                            Click="BtnRegisterSensor_Click">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="4"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+            </Border>
+
+            <!-- RIGHT COLUMN: REGISTERED SENSORS TABLE -->
+            <Grid Grid.Column="1" Margin="15,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Text="Registered Sensors" 
+                           FontSize="20" 
+                           FontWeight="Bold" 
+                           Foreground="#FFFFFF" 
+                           Margin="0,0,0,15"/>
+
+                <Border Grid.Row="1" 
+                        Background="#0C1623" 
+                        CornerRadius="8" 
+                        BorderBrush="#1E293B" 
+                        BorderThickness="1" 
+                        Padding="15">
+
+                    <DataGrid x:Name="dgSensors" 
+                              AutoGenerateColumns="False" 
+                              CanUserAddRows="False"
+                              Background="Transparent"
+                              RowBackground="#0C1623"
+                              AlternatingRowBackground="#0F1D2F"
+                              Foreground="#FFFFFF"
+                              BorderBrush="Transparent"
+                              GridLinesVisibility="Horizontal"
+                              HorizontalGridLinesBrush="#1E293B"
+                              HeadersVisibility="Column">
+                        <DataGrid.Resources>
+                            <!-- Custom Header Style -->
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="#060C15"/>
+                                <Setter Property="Foreground" Value="#94A3B8"/>
+                                <Setter Property="FontWeight" Value="SemiBold"/>
+                                <Setter Property="Padding" Value="10,8"/>
+                                <Setter Property="BorderBrush" Value="#1E293B"/>
+                                <Setter Property="BorderThickness" Value="0,0,0,1"/>
+                            </Style>
+                            <!-- Custom Cell Style -->
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="Padding" Value="10,8"/>
+                                <Setter Property="BorderThickness" Value="0"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="DataGridCell">
+                                            <Border Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}">
+                                                <ContentPresenter VerticalAlignment="Center" />
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </DataGrid.Resources>
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="MAC" Binding="{Binding MacAddress}" Width="*"/>
+                            <DataGridTextColumn Header="Location" Binding="{Binding Location}" Width="*"/>
+                            <DataGridTextColumn Header="Category" Binding="{Binding Category}" Width="110"/>
+                            <DataGridTextColumn Header="Node" Binding="{Binding NodeId}" Width="70"/>
+                            <DataGridTextColumn Header="Date Registered" Binding="{Binding DateRegistered}" Width="130"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
