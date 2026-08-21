@@ -1,0 +1,1 @@
+# ST10448895-SmartSensor
