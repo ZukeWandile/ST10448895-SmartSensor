@@ -26,7 +26,9 @@ namespace sensorX.Views
 
         private void Sensor_Ingestion_Click(object sender, RoutedEventArgs e)
         {
-
+            SensorDashBoard sensorDashBoard = new SensorDashBoard();
+            sensorDashBoard.Show();
+            this.Close();
         }
     }
 }

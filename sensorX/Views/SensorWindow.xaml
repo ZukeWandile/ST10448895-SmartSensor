@@ -91,7 +91,7 @@
                     <!-- Category Dropdown -->
                     <TextBlock Text="Category" FontSize="12" FontWeight="SemiBold" Foreground="#94A3B8" Margin="0,0,0,5"/>
                     <ComboBox x:Name="cmbCategory" Height="38" FontSize="13" Margin="0,0,0,15" VerticalContentAlignment="Center"
-                              Background="#162334" Foreground="#FFFFFF" BorderBrush="#1E293B">
+                              Background="#162334" Foreground="#000000" BorderBrush="#1E293B">
                         <ComboBoxItem Content="Environmental" IsSelected="True"/>
                         <ComboBoxItem Content="Occupancy"/>
                         <ComboBoxItem Content="Temperature"/>
