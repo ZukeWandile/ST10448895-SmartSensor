@@ -1,0 +1,103 @@
+﻿<Window x:Class="sensorX.Views.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:sensorX.Views"
+        mc:Ignorable="d"
+        Title="SENTINEL Gateway" Height="550" Width="950"
+        WindowStartupLocation="CenterScreen"
+        Background="#08101C">
+
+    <!-- Enables window dragging when clicking the background -->
+    <Grid MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        <!-- Outer Card -->
+        <Border Margin="40" CornerRadius="8" Background="#0D1826" ClipToBounds="True">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.2*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- ================= LEFT PANEL ================= -->
+                <Border Grid.Column="0" Background="#0A1523" Padding="40">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Brand Header -->
+                        <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Top">
+                            <Border Width="28" Height="28" Background="#38BDF8" CornerRadius="4">
+                                <TextBlock Text="X" Foreground="#0F172A" FontWeight="Bold" 
+                                           HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                            </Border>
+                            <TextBlock Text="S E N S O R - X" Foreground="#F8FAFC" FontWeight="Bold" 
+                                       FontSize="14" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                        </StackPanel>
+
+                        <!-- Hero Text Content -->
+                        <StackPanel Grid.Row="1" VerticalAlignment="Center" Margin="0,20">
+                            <TextBlock Text="Observe every&#10;movement. Secure&#10;every space." 
+                                       Foreground="#FFFFFF" FontSize="28" FontWeight="Bold" LineHeight="36"/>
+                        </StackPanel>
+
+                    </Grid>
+                </Border>
+
+                <!-- ================= RIGHT PANEL (FORM) ================= -->
+                <Border Grid.Column="1" Background="#0F1C2E" Padding="40">
+                    <StackPanel VerticalAlignment="Center">
+
+                        <!-- Title -->
+                        <TextBlock Text="Welcome back" Foreground="#FFFFFF" FontSize="24" FontWeight="Bold"/>
+                        <TextBlock Text="Sign in to access the Sensor X gateway." Foreground="#94A3B8" FontSize="13" Margin="0,6,0,28"/>
+
+                        <!-- Email Input -->
+                        <TextBlock Text="Email address" Foreground="#94A3B8" FontSize="12" Margin="0,0,0,6"/>
+                        <Border Background="#09111E" BorderBrush="#1E293B" BorderThickness="1" CornerRadius="4" Padding="10,8" Margin="0,0,0,18">
+                            <TextBox x:Name="TxtEmail" Background="Transparent" Foreground="#FFFFFF" BorderThickness="0" FontSize="13"/>
+                        </Border>
+
+                        <!-- Password Input -->
+                        <TextBlock Text="Password" Foreground="#94A3B8" FontSize="12" Margin="0,0,0,6"/>
+                        <Border x:Name="TxtPassword2" Background="#09111E" BorderBrush="#1E293B" BorderThickness="1" CornerRadius="4" Padding="10,8" Margin="0,0,0,24">
+                            <PasswordBox x:Name="TxtPassword" Background="Transparent" Foreground="#FFFFFF" BorderThickness="0" FontSize="13"/>
+                        </Border>
+
+                        <!-- Sign In Button -->
+                        <Button Content="Sign in" Height="40" Background="#38BDF8" Foreground="#0F172A" 
+                                FontWeight="Bold" FontSize="13" Margin="0,0,0,12" Cursor="Hand" Click="BtnSignIn_Click">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="4"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                        <!-- Guest Button -->
+                        <Button Content="Continue as guest" Height="40" Background="#1E293B" Foreground="#F8FAFC" 
+                                FontWeight="SemiBold" FontSize="13" Margin="0,0,0,24" Cursor="Hand" Click="BtnGuest_Click">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="4"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                        <!-- Register Link -->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <TextBlock Text="New to Sensor-X? " Foreground="#64748B" FontSize="12"/>
+                            <TextBlock x:Name="SignUp" Text="Create an account" Foreground="#38BDF8" FontSize="12" 
+                                       TextDecorations="Underline" Cursor="Hand" MouseLeftButtonDown="SignUp_MouseLeftButtonDown"/>
+                        </StackPanel>
+
+                    </StackPanel>
+                </Border>
+
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

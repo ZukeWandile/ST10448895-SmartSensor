@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using sensorX.Views;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -11,9 +12,7 @@ using System.Windows.Shapes;
 
 namespace sensorX
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+  
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -23,7 +22,9 @@ namespace sensorX
 
         private void SignInButton_Click(object sender, RoutedEventArgs e)
         {
-
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
+            this.Close();
         }
     }
 }

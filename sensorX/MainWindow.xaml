@@ -223,13 +223,7 @@
                         MaxWidth="650">
 
 
-                <!-- SMALL HEADING -->
-
-                <TextBlock Text="ENVIRONMENTAL INTELLIGENCE"
-                           Foreground="#2FE5E7"
-                           FontSize="14"
-                           FontWeight="Bold"
-                           Margin="0,0,0,24"/>
+                
 
 
                 <!-- MAIN HEADING -->
@@ -255,13 +249,7 @@
 
                 <!-- DESCRIPTION -->
 
-                <TextBlock Text="A unified industrial sensing platform for real-time ingestion, telemetry and motion awareness."
-                           Foreground="#8DB6D6"
-                           FontSize="18"
-                           LineHeight="30"
-                           TextWrapping="Wrap"
-                           Margin="0,28,0,35"
-                           MaxWidth="570"/>
+                
 
 
                 <!-- FEATURES -->
@@ -425,10 +413,7 @@
               Margin="55,0">
 
 
-            <TextBlock Text="SENTINEL ENVIRONMENTAL INTELLIGENCE"
-                       Foreground="#42647A"
-                       FontSize="11"
-                       VerticalAlignment="Center"/>
+          
 
 
             <TextBlock Text="SYSTEM READY"
