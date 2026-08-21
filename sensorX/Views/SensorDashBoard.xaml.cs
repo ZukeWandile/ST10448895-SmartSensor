@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace sensorX.Views
 {
     /// <summary>
-    /// Interaction logic for GatewayWindow.xaml
+    /// Interaction logic for SensorDashBoard.xaml
     /// </summary>
-    public partial class GatewayWindow : Window
+    public partial class SensorDashBoard : Window
     {
-        public GatewayWindow()
+        public SensorDashBoard()
         {
             InitializeComponent();
-        }
-
-        private void Sensor_Ingestion_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

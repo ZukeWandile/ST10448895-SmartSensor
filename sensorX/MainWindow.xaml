@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:sensorX"
         mc:Ignorable="d"
-        Title="Sentinel"
+        Title="Sensor"
         Height="700"
         Width="1200"
         MinHeight="600"
@@ -105,6 +105,10 @@
 
 
     <Grid Background="{StaticResource BackgroundBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="233*"/>
+        </Grid.ColumnDefinitions>
 
         <!-- ================================================= -->
         <!-- BACKGROUND CIRCLES                                -->
@@ -117,7 +121,7 @@
                  Margin="0,0,-260,-300"
                  Stroke="#14364C"
                  StrokeThickness="1"
-                 Opacity="0.7"/>
+                 Opacity="0.7" Grid.Column="1"/>
 
         <Ellipse Width="520"
                  Height="520"
@@ -126,7 +130,7 @@
                  Margin="0,0,-195,-235"
                  Stroke="#19455D"
                  StrokeThickness="1"
-                 Opacity="0.65"/>
+                 Opacity="0.65" Grid.Column="1"/>
 
         <Ellipse Width="390"
                  Height="390"
@@ -135,7 +139,7 @@
                  Margin="0,0,-130,-170"
                  Stroke="#1C536B"
                  StrokeThickness="1"
-                 Opacity="0.5"/>
+                 Opacity="0.5" Grid.Column="1"/>
 
 
         <!-- ================================================= -->
@@ -144,7 +148,7 @@
 
         <Grid Height="80"
               VerticalAlignment="Top"
-              Margin="55,0,55,0">
+              Margin="20,0,55,0" Grid.Column="1">
 
             <Grid.ColumnDefinitions>
 
@@ -203,7 +207,7 @@
         <!-- MAIN CONTENT                                      -->
         <!-- ================================================= -->
 
-        <Grid Margin="100,120,100,70">
+        <Grid Margin="65,120,100,70" Grid.Column="1">
 
             <Grid.ColumnDefinitions>
 
@@ -223,7 +227,7 @@
                         MaxWidth="650">
 
 
-                
+
 
 
                 <!-- MAIN HEADING -->
@@ -249,7 +253,7 @@
 
                 <!-- DESCRIPTION -->
 
-                
+
 
 
                 <!-- FEATURES -->
@@ -410,10 +414,10 @@
 
         <Grid Height="45"
               VerticalAlignment="Bottom"
-              Margin="55,0">
+              Margin="20,0,55,0" Grid.Column="1">
 
 
-          
+
 
 
             <TextBlock Text="SYSTEM READY"

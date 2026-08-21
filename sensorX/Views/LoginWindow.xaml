@@ -5,14 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:sensorX.Views"
         mc:Ignorable="d"
-        Title="SENTINEL Gateway" Height="550" Width="950"
+        Title="SENSOR X" Height="550" Width="950"
         WindowStartupLocation="CenterScreen"
         Background="#08101C">
 
     <!-- Enables window dragging when clicking the background -->
     <Grid MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="47*"/>
+            <ColumnDefinition Width="903*"/>
+        </Grid.ColumnDefinitions>
         <!-- Outer Card -->
-        <Border Margin="40" CornerRadius="8" Background="#0D1826" ClipToBounds="True">
+        <Border Margin="40,40,40,40" CornerRadius="8" Background="#0D1826" ClipToBounds="True" Grid.ColumnSpan="2">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1.2*"/>

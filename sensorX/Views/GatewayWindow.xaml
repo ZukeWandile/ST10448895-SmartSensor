@@ -5,8 +5,179 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:sensorX.Views"
         mc:Ignorable="d"
-        Title="GatewayWindow" Height="450" Width="800">
+        Title=" Gateway" Height="620" Width="1000"
+        WindowStartupLocation="CenterScreen"
+        Background="#08101C">
+
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- ================= TOP HEADER NAV ================= -->
+        <Border Grid.Row="0" Background="#0A1523" Padding="24,18" BorderBrush="#1E293B" BorderThickness="0,0,0,1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Left Title Section -->
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="S  E  N  S  O  R - X  " Foreground="#FFFFFF" FontSize="18" FontWeight="Bold"/>
+                    
+                </StackPanel>
+
+                <!-- Right Status Section -->
+                <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">
+                    <TextBlock Text="Checking API..." Foreground="#F59E0B" FontWeight="SemiBold" FontSize="12" HorizontalAlignment="Right"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                        <Ellipse Width="7" Height="7" Fill="#10B981" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                        <TextBlock Text="Firebase Connected" Foreground="#10B981" FontSize="11"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- ================= MAIN CONTENT AREA ================= -->
+        <Grid Grid.Row="1" Margin="32,24,32,32">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Page Title -->
+            <StackPanel Grid.Row="0" Margin="0,0,0,24">
+                <TextBlock Text="Select an Architectural Pillar" Foreground="#FFFFFF" FontSize="22" FontWeight="Bold"/>
+                <TextBlock Text="Choose a  feature to continue." Foreground="#94A3B8" FontSize="13" Margin="0,6,0,0"/>
+            </StackPanel>
+
+            <!-- Cards Grid (3 Columns) -->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="16"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="16"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- ================= CARD 1: ACTIVE ================= -->
+                <Border Grid.Column="0" Background="#0D1826" BorderBrush="#38BDF8" BorderThickness="1.5" CornerRadius="8" Padding="24">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Icon Container -->
+                        <Border Grid.Row="0" Width="44" Height="44" Background="#162C46" CornerRadius="6" HorizontalAlignment="Left">
+                            <Ellipse Width="16" Height="16" Stroke="#38BDF8" StrokeThickness="3"/>
+                        </Border>
+
+                        <!-- Sub-Label -->
+                        <TextBlock Grid.Row="1" Text="FEATURE 01 · ACTIVE" Foreground="#38BDF8" FontWeight="SemiBold" FontSize="11" Margin="0,20,0,6"/>
+
+                        <!-- Title -->
+                        <TextBlock Grid.Row="2" Text="Sensor  Ingestion" Foreground="#FFFFFF" FontSize="18" FontWeight="Bold"/>
+
+                        <!-- Description -->
+                        <TextBlock Grid.Row="3" Text="Register sensors, monitor occupancy telemetry, upload configuration files and manage device information." 
+                                   Foreground="#94A3B8" FontSize="12.5" TextWrapping="Wrap" LineHeight="18" Margin="0,10,0,0"/>
+
+                        <!-- Active Button -->
+                        <Button x:Name="Sensor_Ingestion" Grid.Row="4" Content="OPEN FEATURE" Height="40" Background="#38BDF8" Foreground="#0F172A" 
+                                FontWeight="Bold" FontSize="12" Cursor="Hand" Click="Sensor_Ingestion_Click">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="4"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </Grid>
+                </Border>
+
+                <!-- ================= CARD 2: LOCKED ================= -->
+                <Border Grid.Column="2" Background="#0C1623" BorderBrush="#1E293B" BorderThickness="1" CornerRadius="8" Padding="24">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Icon Container -->
+                        <Border Grid.Row="0" Width="44" Height="44" Background="#111D2D" CornerRadius="6" HorizontalAlignment="Left">
+                            <TextBlock Text="   " Foreground="#475569" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+
+                        <!-- Sub-Label -->
+                        <TextBlock Grid.Row="1" Text="PART 2 · LOCKED" Foreground="#64748B" FontWeight="SemiBold" FontSize="11" Margin="0,20,0,6"/>
+
+                        <!-- Title -->
+                        <TextBlock Grid.Row="2" Text="Real-Time Commands" Foreground="#64748B" FontSize="18" FontWeight="Bold"/>
+
+                        <!-- Description -->
+                        <TextBlock Grid.Row="3" 
+                                   Foreground="#475569" FontSize="12.5" TextWrapping="Wrap" LineHeight="18" Margin="0,10,0,0"/>
+
+                        <!-- Disabled Button -->
+                        <Button Grid.Row="4" Content="COMING SOON" Height="40" Background="#162334" Foreground="#475569" 
+                                FontWeight="SemiBold" FontSize="12" IsEnabled="False">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="4"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </Grid>
+                </Border>
+
+                <!-- ================= CARD 3: LOCKED ================= -->
+                <Border Grid.Column="4" Background="#0C1623" BorderBrush="#1E293B" BorderThickness="1" CornerRadius="8" Padding="24">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Icon Container -->
+                        <Border Grid.Row="0" Width="44" Height="44" Background="#111D2D" CornerRadius="6" HorizontalAlignment="Left">
+                            <Polygon Points="10,0 20,10 10,20 0,10" Stroke="#475569" StrokeThickness="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+
+                        <!-- Sub-Label -->
+                        <TextBlock Grid.Row="1" Text="FINAL  · LOCKED" Foreground="#64748B" FontWeight="SemiBold" FontSize="11" Margin="0,20,0,6"/>
+
+                        <!-- Title -->
+                        <TextBlock Grid.Row="2" Text="Network Management" Foreground="#64748B" FontSize="18" FontWeight="Bold"/>
+
+                        <!-- Description -->
+                        <TextBlock Grid.Row="3" 
+                                   Foreground="#475569" FontSize="12.5" TextWrapping="Wrap" LineHeight="18" Margin="0,10,0,0"/>
+
+                        <!-- Disabled Button -->
+                        <Button Grid.Row="4" Content="COMING SOON" Height="40" Background="#162334" Foreground="#475569" 
+                                FontWeight="SemiBold" FontSize="12" IsEnabled="False">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="4"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </Grid>
+                </Border>
+
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
