@@ -20,9 +20,11 @@ namespace sensorX.Views
         private readonly List<MotionPoint> _motionPoints = new();
         private readonly MotionPathAnalyzer _pathAnalyzer;
 
+
         // Currently selected sensor and point data
         private Sensor? _selectedSensor;
         private MotionPoint? _currentPoint;
+        private MotionNode? _motionSensorNode;
 
         // Simulation coordinates (0-10 range)
         private double _currentX = 5;
@@ -86,7 +88,7 @@ namespace sensorX.Views
         }
 
         // Starts the motion scan simulation
-        private void StartButton_Click(object sender, RoutedEventArgs e)
+        private void StartButton_Click( object sender,RoutedEventArgs e)
         {
             if (_selectedSensor == null)
             {
@@ -99,15 +101,24 @@ namespace sensorX.Views
                 return;
             }
 
-            // Clear previous scan data
+            BuildMotionHierarchy();
+
+            if (!ValidateMotionHierarchy())
+            {
+                MessageBox.Show(
+                    "Motion sensor hierarchy validation failed.",
+                    "Validation Error",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+
+                return;
+            }
+
             _motionPoints.Clear();
             _currentPoint = null;
+
             ClearMotionPath();
 
-            PointCountText.Text = "0";
-            DistanceText.Text = "0.00 m";
-
-            // Start timer and update button states
             _scanTimer.Start();
 
             StartButton.IsEnabled = false;
@@ -133,6 +144,9 @@ namespace sensorX.Views
 
             StatusText.Text = "STOPPED";
             StatusIndicator.Fill = Brushes.Gray;
+
+            // Convert the recorded motion path into a raw jagged array.
+            float[][] rawBatch = ConvertMotionPointsToRawBatch();
         }
 
         // Timer tick event to trigger new simulated readings
@@ -302,6 +316,57 @@ namespace sensorX.Views
             DetectionText.Foreground = Brushes.Gray;
         }
 
+        private float[][] ConvertMotionPointsToRawBatch()
+        {
+            float[][] rawBatch = new float[_motionPoints.Count][];
+
+            for (int i = 0; i < _motionPoints.Count; i++)
+            {
+                rawBatch[i] = new float[]
+                {
+            (float)_motionPoints[i].X,
+            (float)_motionPoints[i].Y
+                };
+            }
+
+            return rawBatch;
+        }
+
+        private void BuildMotionHierarchy()
+        {
+            MotionNode facility =
+                new MotionNode("Facility A");
+
+            MotionNode zone =
+                new MotionNode("Zone 1")
+                {
+                    Parent = facility
+                };
+
+            MotionNode subZone =
+                new MotionNode("SubZone B")
+                {
+                    Parent = zone
+                };
+
+            _motionSensorNode =
+                new MotionNode(_selectedSensor?.NodeId ?? "Motion Sensor")
+                {
+                    Parent = subZone
+                };
+        }
+
+        private bool ValidateMotionHierarchy()
+        {
+            if (_motionSensorNode == null)
+                return false;
+
+            MotionHierarchyValidator validator =
+                new MotionHierarchyValidator();
+
+            return validator.Validate(_motionSensorNode);
+        }
+
         // Removes line objects from the UI canvas and resets origin positions
         private void ClearMotionPath()
         {
@@ -338,15 +403,20 @@ namespace sensorX.Views
         private void ClearPathButton_Click(object sender, RoutedEventArgs e)
         {
             _motionPoints.Clear();
+
             _currentPoint = null;
 
             ClearMotionPath();
+
+            PointCountText.Text = "0";
+            DistanceText.Text = "0.00 m";
 
             XPositionText.Text = "--";
             YPositionText.Text = "--";
             SpeedText.Text = "-- m/s";
 
             DetectionText.Text = "NO MOVEMENT";
+            DetectionText.Foreground = Brushes.Gray;
         }
     }
 }
