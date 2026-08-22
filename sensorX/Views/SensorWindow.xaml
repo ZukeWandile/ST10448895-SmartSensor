@@ -95,7 +95,7 @@
                         <ComboBoxItem Content="Environmental" IsSelected="True"/>
                         <ComboBoxItem Content="Occupancy"/>
                         <ComboBoxItem Content="Temperature"/>
-                        <ComboBoxItem Content="Motion"/>
+                        <ComboBoxItem Content="Motion Sensor"/>
                     </ComboBox>
 
                     <!-- Node ID -->

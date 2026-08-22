@@ -19,5 +19,7 @@ namespace sensorX.Models
         public string Status { get; set; } = "Online";
 
         public string DateRegistered { get; set; } = string.Empty;
+
+        public string DisplayName => $"{NodeId} - {Location}"; 
     }
 }
