@@ -311,6 +311,32 @@
                                 </Button.Resources>
 
                             </Button>
+                            <!-- replay  -->
+
+                            <Button x:Name="ReplayPathButton"
+        Content="REPLAY PATH"
+        Width="140"
+        Height="40"
+        Background="#38BDF8"
+        Foreground="#0F172A"
+        FontWeight="Bold"
+        BorderThickness="0"
+        Cursor="Hand"
+        Click="ReplayPathButton_Click"
+        Margin="10,0,0,0">
+
+                                <Button.Resources>
+
+                                    <Style TargetType="Border">
+
+                                        <Setter Property="CornerRadius"
+                    Value="4"/>
+
+                                    </Style>
+
+                                </Button.Resources>
+
+                            </Button>
 
                         </WrapPanel>
 

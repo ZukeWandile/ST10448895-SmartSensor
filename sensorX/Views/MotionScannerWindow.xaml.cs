@@ -1,6 +1,4 @@
-﻿using sensorX.Models;
-using sensorX.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -8,10 +6,11 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using sensorX.Models;
+using sensorX.Services;
 
 namespace sensorX.Views
 {
-
     public partial class MotionScannerWindow : Window
     {
         // Helper fields for simulation and data tracking
@@ -19,12 +18,13 @@ namespace sensorX.Views
         private readonly DispatcherTimer _scanTimer;
         private readonly List<MotionPoint> _motionPoints = new();
         private readonly MotionPathAnalyzer _pathAnalyzer;
-
+        private DispatcherTimer? _replayTimer;
 
         // Currently selected sensor and point data
         private Sensor? _selectedSensor;
         private MotionPoint? _currentPoint;
         private MotionNode? _motionSensorNode;
+        private Point? _previousReplayPoint;
 
         // Simulation coordinates (0-10 range)
         private double _currentX = 5;
@@ -32,6 +32,12 @@ namespace sensorX.Views
 
         // Stores the previous point drawn on the canvas to render path lines
         private Point? _previousCanvasPoint;
+
+        // Stores the last batch of motion data for potential further processing
+        private float[][]? _lastMotionBatch;
+
+        // Index for replaying motion data
+        private int _replayIndex;
 
         public MotionScannerWindow()
         {
@@ -88,7 +94,7 @@ namespace sensorX.Views
         }
 
         // Starts the motion scan simulation
-        private void StartButton_Click( object sender,RoutedEventArgs e)
+        private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             if (_selectedSensor == null)
             {
@@ -145,8 +151,8 @@ namespace sensorX.Views
             StatusText.Text = "STOPPED";
             StatusIndicator.Fill = Brushes.Gray;
 
-            // Convert the recorded motion path into a raw jagged array.
-            float[][] rawBatch = ConvertMotionPointsToRawBatch();
+            // Convert the recorded motion points into the raw jagged array.
+            _lastMotionBatch = ConvertMotionPointsToRawBatch();
         }
 
         // Timer tick event to trigger new simulated readings
@@ -316,6 +322,7 @@ namespace sensorX.Views
             DetectionText.Foreground = Brushes.Gray;
         }
 
+        // Converts motion points collection into a raw jagged array
         private float[][] ConvertMotionPointsToRawBatch()
         {
             float[][] rawBatch = new float[_motionPoints.Count][];
@@ -324,46 +331,42 @@ namespace sensorX.Views
             {
                 rawBatch[i] = new float[]
                 {
-            (float)_motionPoints[i].X,
-            (float)_motionPoints[i].Y
+                    (float)_motionPoints[i].X,
+                    (float)_motionPoints[i].Y
                 };
             }
 
             return rawBatch;
         }
 
+        // Builds a hierarchical structure for the motion sensor context
         private void BuildMotionHierarchy()
         {
-            MotionNode facility =
-                new MotionNode("Facility A");
+            MotionNode facility = new MotionNode("Facility A");
 
-            MotionNode zone =
-                new MotionNode("Zone 1")
-                {
-                    Parent = facility
-                };
+            MotionNode zone = new MotionNode("Zone 1")
+            {
+                Parent = facility
+            };
 
-            MotionNode subZone =
-                new MotionNode("SubZone B")
-                {
-                    Parent = zone
-                };
+            MotionNode subZone = new MotionNode("SubZone B")
+            {
+                Parent = zone
+            };
 
-            _motionSensorNode =
-                new MotionNode(_selectedSensor?.NodeId ?? "Motion Sensor")
-                {
-                    Parent = subZone
-                };
+            _motionSensorNode = new MotionNode(_selectedSensor?.NodeId ?? "Motion Sensor")
+            {
+                Parent = subZone
+            };
         }
 
+        // Validates the built motion sensor hierarchy
         private bool ValidateMotionHierarchy()
         {
             if (_motionSensorNode == null)
                 return false;
 
-            MotionHierarchyValidator validator =
-                new MotionHierarchyValidator();
-
+            MotionHierarchyValidator validator = new MotionHierarchyValidator();
             return validator.Validate(_motionSensorNode);
         }
 
@@ -384,10 +387,139 @@ namespace sensorX.Views
             _currentY = 5;
         }
 
+        // Handles the button click to replay the previously recorded motion path
+        private void ReplayPathButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (_lastMotionBatch == null || _lastMotionBatch.Length == 0)
+            {
+                MessageBox.Show(
+                    "There is no recorded motion path to replay.",
+                    "No Path Available",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+
+                return;
+            }
+
+            // Stop live scanning if it is running.
+            _scanTimer.Stop();
+
+            StartButton.IsEnabled = false;
+            StopButton.IsEnabled = false;
+
+            // Clear the current visual path.
+            ClearMotionPath();
+
+            // Start replay from the first point.
+            _replayIndex = 0;
+            _previousReplayPoint = null;
+
+            _replayTimer?.Stop();
+
+            _replayTimer = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromMilliseconds(300)
+            };
+
+            _replayTimer.Tick += ReplayTimer_Tick;
+            _replayTimer.Start();
+
+            StatusText.Text = "REPLAYING";
+            StatusIndicator.Fill = Brushes.DeepSkyBlue;
+        }
+
+        // Timer tick event for handling path replay increments
+        private void ReplayTimer_Tick(object? sender, EventArgs e)
+        {
+            if (_lastMotionBatch == null)
+                return;
+
+            if (_replayIndex >= _lastMotionBatch.Length)
+            {
+                StopReplay();
+                return;
+            }
+
+            float[] point = _lastMotionBatch[_replayIndex];
+
+            double x = point[0];
+            double y = point[1];
+
+            DrawReplayPoint(x, y);
+
+            _replayIndex++;
+        }
+
+        // Renders individual points and connecting lines during path replay
+        private void DrawReplayPoint(double x, double y)
+        {
+            double canvasWidth = MotionCanvas.ActualWidth;
+            double canvasHeight = MotionCanvas.ActualHeight;
+
+            if (canvasWidth <= 0 || canvasHeight <= 0)
+                return;
+
+            double canvasX = (x / 10) * canvasWidth;
+            double canvasY = (y / 10) * canvasHeight;
+
+            Point currentPoint = new Point(canvasX, canvasY);
+
+            if (_previousReplayPoint.HasValue)
+            {
+                Line replayLine = new Line
+                {
+                    X1 = _previousReplayPoint.Value.X,
+                    Y1 = _previousReplayPoint.Value.Y,
+                    X2 = currentPoint.X,
+                    Y2 = currentPoint.Y,
+                    Stroke = Brushes.LimeGreen,
+                    StrokeThickness = 3
+                };
+
+                MotionCanvas.Children.Add(replayLine);
+            }
+
+            Canvas.SetLeft(HumanFigure, Math.Max(0, canvasX - 30));
+            Canvas.SetTop(HumanFigure, Math.Max(0, canvasY - 50));
+
+            HumanFigure.Visibility = Visibility.Visible;
+
+            DetectionText.Text = "REPLAYING PATH";
+            DetectionText.Foreground = Brushes.LimeGreen;
+
+            XPositionText.Text = $"{x:F2}";
+            YPositionText.Text = $"{y:F2}";
+
+            _previousReplayPoint = currentPoint;
+        }
+
+        // Stops the replay timer and updates UI indicators
+        private void StopReplay()
+        {
+            if (_replayTimer != null)
+            {
+                _replayTimer.Stop();
+                _replayTimer.Tick -= ReplayTimer_Tick;
+                _replayTimer = null;
+            }
+
+            _previousReplayPoint = null;
+
+            StartButton.IsEnabled = true;
+
+            StatusText.Text = "REPLAY COMPLETE";
+            StatusIndicator.Fill = Brushes.Gray;
+
+            DetectionText.Text = "PATH REPLAY COMPLETE";
+            DetectionText.Foreground = Brushes.LightGreen;
+        }
+
         // Ensures active timers are stopped when window is closed
         protected override void OnClosed(EventArgs e)
         {
             _scanTimer.Stop();
+            _replayTimer?.Stop();
+
             base.OnClosed(e);
         }
 
@@ -402,21 +534,31 @@ namespace sensorX.Views
         // Clears line data and resets active position UI text
         private void ClearPathButton_Click(object sender, RoutedEventArgs e)
         {
-            _motionPoints.Clear();
+            _scanTimer.Stop();
+            _replayTimer?.Stop();
 
+            _motionPoints.Clear();
             _currentPoint = null;
+            _lastMotionBatch = null;
 
             ClearMotionPath();
 
             PointCountText.Text = "0";
             DistanceText.Text = "0.00 m";
-
             XPositionText.Text = "--";
             YPositionText.Text = "--";
             SpeedText.Text = "-- m/s";
 
             DetectionText.Text = "NO MOVEMENT";
             DetectionText.Foreground = Brushes.Gray;
+
+            HumanFigure.Visibility = Visibility.Hidden;
+
+            StatusText.Text = "STOPPED";
+            StatusIndicator.Fill = Brushes.Gray;
+
+            StartButton.IsEnabled = true;
+            StopButton.IsEnabled = false;
         }
     }
 }
