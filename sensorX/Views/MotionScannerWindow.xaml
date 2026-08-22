@@ -85,7 +85,7 @@
 
                 <ComboBox Grid.Column="1"
                           x:Name="SensorComboBox"
-                          DisplayMemberPath="DisplayName"
+                          DisplayMemberPath="NodeId"
                           SelectionChanged="SensorComboBox_SelectionChanged"
                           Height="35"
                           Background="#162334"
@@ -146,27 +146,23 @@
                             <!-- Human Figure -->
 
                             <StackPanel x:Name="HumanFigure"
-                                        Canvas.Left="200"
-                                        Canvas.Top="100">
+            Canvas.Left="200"
+            Canvas.Top="100">
 
                                 <TextBlock Text="●"
-                                           FontSize="35"
-                                           HorizontalAlignment="Center"
-                                           Foreground="#38BDF8"/>
-                                <TextBlock Text="\  /"
-                                           FontSize="35"
-                                           HorizontalAlignment="Center"
-                                           Foreground="#38BDF8"/>
+               FontSize="35"
+               HorizontalAlignment="Center"
+               Foreground="#38BDF8"/>
 
                                 <TextBlock Text="│"
-                                           FontSize="40"
-                                           HorizontalAlignment="Center"
-                                           Foreground="#38BDF8"/>
+               FontSize="40"
+               HorizontalAlignment="Center"
+               Foreground="#38BDF8"/>
 
-                                <TextBlock Text="/ \"
-                                           FontSize="35"
-                                           HorizontalAlignment="Center"
-                                           Foreground="#38BDF8"/>
+                                <TextBlock Text="╱ ╲"
+               FontSize="35"
+               HorizontalAlignment="Center"
+               Foreground="#38BDF8"/>
 
                             </StackPanel>
 
