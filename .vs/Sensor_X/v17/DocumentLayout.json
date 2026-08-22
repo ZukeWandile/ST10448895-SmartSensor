@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|c:\\users\\wzuke\\downloads\\st10448895-smartsensor\\sensorx\\models\\motionbatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|solutionrelative:sensorx\\models\\motionbatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|c:\\users\\wzuke\\downloads\\st10448895-smartsensor\\sensorx\\services\\motionhierarchyvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|solutionrelative:sensorx\\services\\motionhierarchyvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|c:\\users\\wzuke\\downloads\\st10448895-smartsensor\\sensorx\\models\\motionnode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|solutionrelative:sensorx\\models\\motionnode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|c:\\users\\wzuke\\downloads\\st10448895-smartsensor\\sensorx\\views\\motionscannerwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|solutionrelative:sensorx\\views\\motionscannerwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -54,7 +66,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,7 +82,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "MotionBatch.cs",
+              "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Models\\MotionBatch.cs",
+              "RelativeDocumentMoniker": "sensorX\\Models\\MotionBatch.cs",
+              "ToolTip": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Models\\MotionBatch.cs",
+              "RelativeToolTip": "sensorX\\Models\\MotionBatch.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-22T17:28:02.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MotionHierarchyValidator.cs",
+              "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Services\\MotionHierarchyValidator.cs",
+              "RelativeDocumentMoniker": "sensorX\\Services\\MotionHierarchyValidator.cs",
+              "ToolTip": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Services\\MotionHierarchyValidator.cs",
+              "RelativeToolTip": "sensorX\\Services\\MotionHierarchyValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-22T17:26:18.227Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MotionNode.cs",
+              "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Models\\MotionNode.cs",
+              "RelativeDocumentMoniker": "sensorX\\Models\\MotionNode.cs",
+              "ToolTip": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Models\\MotionNode.cs",
+              "RelativeToolTip": "sensorX\\Models\\MotionNode.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-22T17:23:57.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "MotionPoint.cs",
               "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Models\\MotionPoint.cs",
               "RelativeDocumentMoniker": "sensorX\\Models\\MotionPoint.cs",
@@ -82,7 +133,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "MotionScannerWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Views\\MotionScannerWindow.xaml.cs",
               "RelativeDocumentMoniker": "sensorX\\Views\\MotionScannerWindow.xaml.cs",
@@ -95,19 +146,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "MotionScannerWindow.xaml",
               "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Views\\MotionScannerWindow.xaml",
               "RelativeDocumentMoniker": "sensorX\\Views\\MotionScannerWindow.xaml",
               "ToolTip": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Views\\MotionScannerWindow.xaml",
               "RelativeToolTip": "sensorX\\Views\\MotionScannerWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-08-21T19:21:45.244Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-21T19:21:45.244Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "MotionDataGenerator.cs",
               "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Services\\MotionDataGenerator.cs",
               "RelativeDocumentMoniker": "sensorX\\Services\\MotionDataGenerator.cs",
@@ -115,12 +165,11 @@
               "RelativeToolTip": "sensorX\\Services\\MotionDataGenerator.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAwB8AAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-22T15:15:21.44Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-22T15:15:21.44Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "MotionData.cs",
               "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Models\\MotionData.cs",
               "RelativeDocumentMoniker": "sensorX\\Models\\MotionData.cs",
@@ -132,7 +181,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "SensorWindow.xaml",
               "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Views\\SensorWindow.xaml",
               "RelativeDocumentMoniker": "sensorX\\Views\\SensorWindow.xaml",
@@ -143,7 +192,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "SensorDashBoard.xaml",
               "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Views\\SensorDashBoard.xaml",
               "RelativeDocumentMoniker": "sensorX\\Views\\SensorDashBoard.xaml",
@@ -154,7 +203,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "SensorWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Views\\SensorWindow.xaml.cs",
               "RelativeDocumentMoniker": "sensorX\\Views\\SensorWindow.xaml.cs",
@@ -166,7 +215,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "SensorDashBoard.xaml.cs",
               "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Views\\SensorDashBoard.xaml.cs",
               "RelativeDocumentMoniker": "sensorX\\Views\\SensorDashBoard.xaml.cs",
@@ -178,7 +227,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "TelemetryPacket.cs",
               "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Models\\TelemetryPacket.cs",
               "RelativeDocumentMoniker": "sensorX\\Models\\TelemetryPacket.cs",
@@ -190,7 +239,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "Sensor.cs",
               "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Models\\Sensor.cs",
               "RelativeDocumentMoniker": "sensorX\\Models\\Sensor.cs",
