@@ -18,9 +18,11 @@
 
         <!-- HEADER -->
 
-        <Grid Grid.Row="0" Margin="0,0,0,20">
+        <Grid Grid.Row="0"
+              Margin="0,0,0,20">
 
             <StackPanel HorizontalAlignment="Left">
+
                 <TextBlock Text="MOTION CAPTURE SCANNER"
                            FontSize="28"
                            FontWeight="Bold"
@@ -30,9 +32,12 @@
                            FontSize="14"
                            Foreground="#94A3B8"
                            Margin="0,5,0,0"/>
+
             </StackPanel>
 
-            <!-- BACK BUTTON  -->
+
+            <!-- BACK BUTTON -->
+
             <Button x:Name="btnBack"
                     Content="BACK"
                     HorizontalAlignment="Right"
@@ -46,11 +51,18 @@
                     BorderThickness="1"
                     Cursor="Hand"
                     Click="btnBack_Click">
+
                 <Button.Resources>
+
                     <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="4"/>
+
+                        <Setter Property="CornerRadius"
+                                Value="4"/>
+
                     </Style>
+
                 </Button.Resources>
+
             </Button>
 
         </Grid>
@@ -69,11 +81,17 @@
             <Grid>
 
                 <Grid.ColumnDefinitions>
+
                     <ColumnDefinition Width="Auto"/>
+
                     <ColumnDefinition Width="350"/>
+
                     <ColumnDefinition Width="*"/>
+
                 </Grid.ColumnDefinitions>
 
+
+                <!-- LABEL -->
 
                 <TextBlock Grid.Column="0"
                            Text="Motion Sensor:"
@@ -82,6 +100,8 @@
                            VerticalAlignment="Center"
                            Margin="0,0,15,0"/>
 
+
+                <!-- SENSOR DROPDOWN -->
 
                 <ComboBox Grid.Column="1"
                           x:Name="SensorComboBox"
@@ -93,6 +113,8 @@
                           BorderBrush="#1E293B"
                           BorderThickness="1"/>
 
+
+                <!-- SENSOR INFORMATION -->
 
                 <TextBlock Grid.Column="2"
                            x:Name="SensorInfoText"
@@ -107,15 +129,20 @@
 
         <!-- MAIN AREA -->
 
+
         <Grid Grid.Row="2">
 
             <Grid.ColumnDefinitions>
+
                 <ColumnDefinition Width="2*"/>
+
                 <ColumnDefinition Width="*"/>
+
             </Grid.ColumnDefinitions>
 
 
             <!-- SCANNER AREA -->
+
 
             <Border Grid.Column="0"
                     Background="#0C1623"
@@ -128,12 +155,16 @@
                 <Grid>
 
                     <Grid.RowDefinitions>
+
                         <RowDefinition Height="*"/>
+
                         <RowDefinition Height="Auto"/>
+
                     </Grid.RowDefinitions>
 
 
-                    <!-- Motion Area -->
+                    <!-- MOTION CANVAS -->
+
 
                     <Border Grid.Row="0"
                             Background="#060C15"
@@ -143,28 +174,34 @@
 
                         <Canvas x:Name="MotionCanvas">
 
-                            <!-- Human Figure -->
+
+                            <!-- HUMAN FIGURE -->
+
 
                             <StackPanel x:Name="HumanFigure"
-            Canvas.Left="200"
-            Canvas.Top="100">
+                                        Canvas.Left="200"
+                                        Canvas.Top="100"
+                                        Panel.ZIndex="10">
 
                                 <TextBlock Text="●"
-               FontSize="35"
-               HorizontalAlignment="Center"
-               Foreground="#38BDF8"/>
+                                           FontSize="35"
+                                           HorizontalAlignment="Center"
+                                           Foreground="#38BDF8"/>
 
                                 <TextBlock Text="│"
-               FontSize="40"
-               HorizontalAlignment="Center"
-               Foreground="#38BDF8"/>
+                                           FontSize="40"
+                                           HorizontalAlignment="Center"
+                                           Foreground="#38BDF8"/>
 
                                 <TextBlock Text="╱ ╲"
-               FontSize="35"
-               HorizontalAlignment="Center"
-               Foreground="#38BDF8"/>
+                                           FontSize="35"
+                                           HorizontalAlignment="Center"
+                                           Foreground="#38BDF8"/>
 
                             </StackPanel>
+
+
+                            <!-- DETECTION MESSAGE -->
 
 
                             <TextBlock x:Name="DetectionText"
@@ -173,19 +210,24 @@
                                        Canvas.Top="26"
                                        FontSize="18"
                                        FontWeight="Bold"
-                                       Foreground="#64748B"/>
+                                       Foreground="#64748B"
+                                       Panel.ZIndex="20"/>
 
                         </Canvas>
 
                     </Border>
 
 
-                    <!-- Controls -->
+                    <!-- SCANNER CONTROLS -->
+
 
                     <StackPanel Grid.Row="1"
                                 Margin="0,20,0,0">
 
                         <WrapPanel>
+
+
+                            <!-- START SCAN -->
 
                             <Button x:Name="StartButton"
                                     Content="START SCAN"
@@ -198,12 +240,22 @@
                                     Cursor="Hand"
                                     Click="StartButton_Click"
                                     Margin="0,0,10,0">
+
                                 <Button.Resources>
+
                                     <Style TargetType="Border">
-                                        <Setter Property="CornerRadius" Value="4"/>
+
+                                        <Setter Property="CornerRadius"
+                                                Value="4"/>
+
                                     </Style>
+
                                 </Button.Resources>
+
                             </Button>
+
+
+                            <!-- STOP SCAN -->
 
                             <Button x:Name="StopButton"
                                     Content="STOP SCAN"
@@ -217,11 +269,47 @@
                                     Cursor="Hand"
                                     Click="StopButton_Click"
                                     IsEnabled="False">
+
                                 <Button.Resources>
+
                                     <Style TargetType="Border">
-                                        <Setter Property="CornerRadius" Value="4"/>
+
+                                        <Setter Property="CornerRadius"
+                                                Value="4"/>
+
                                     </Style>
+
                                 </Button.Resources>
+
+                            </Button>
+
+
+                            <!-- CLEAR PATH -->
+
+                            <Button x:Name="ClearPathButton"
+                                    Content="CLEAR PATH"
+                                    Width="140"
+                                    Height="40"
+                                    Background="#162334"
+                                    Foreground="#94A3B8"
+                                    FontWeight="Bold"
+                                    BorderBrush="#1E293B"
+                                    BorderThickness="1"
+                                    Cursor="Hand"
+                                    Click="ClearPathButton_Click"
+                                    Margin="10,0,0,0">
+
+                                <Button.Resources>
+
+                                    <Style TargetType="Border">
+
+                                        <Setter Property="CornerRadius"
+                                                Value="4"/>
+
+                                    </Style>
+
+                                </Button.Resources>
+
                             </Button>
 
                         </WrapPanel>
@@ -233,7 +321,7 @@
             </Border>
 
 
-            <!-- DATA PANEL -->
+            <!-- LIVE SENSOR DATA -->
 
             <Border Grid.Column="1"
                     Background="#0C1623"
@@ -244,6 +332,9 @@
 
                 <StackPanel>
 
+
+                    <!-- TITLE -->
+
                     <TextBlock Text="LIVE SENSOR DATA"
                                FontSize="18"
                                FontWeight="Bold"
@@ -251,7 +342,8 @@
                                Margin="0,0,0,20"/>
 
 
-                    <!-- Status -->
+                    <!-- STATUS -->
+
 
                     <TextBlock Text="STATUS"
                                FontSize="11"
@@ -274,8 +366,8 @@
 
                     </StackPanel>
 
+                    <!-- MOVEMENT -->
 
-                    <!-- Detection -->
 
                     <TextBlock Text="MOVEMENT"
                                FontSize="11"
@@ -290,7 +382,8 @@
                                Margin="0,5,0,20"/>
 
 
-                    <!-- Confidence -->
+
+                    <!-- CONFIDENCE -->
 
                     <TextBlock Text="CONFIDENCE"
                                FontSize="11"
@@ -305,7 +398,8 @@
                                Margin="0,5,0,20"/>
 
 
-                    <!-- X -->
+
+                    <!-- X POSITION -->
 
                     <TextBlock Text="X POSITION"
                                FontSize="11"
@@ -320,7 +414,8 @@
                                Margin="0,5,0,20"/>
 
 
-                    <!-- Y -->
+                    <!-- Y POSITION -->
+
 
                     <TextBlock Text="Y POSITION"
                                FontSize="11"
@@ -335,7 +430,8 @@
                                Margin="0,5,0,20"/>
 
 
-                    <!-- Speed -->
+                    <!-- MOVEMENT SPEED -->
+
 
                     <TextBlock Text="MOVEMENT SPEED"
                                FontSize="11"
@@ -344,6 +440,35 @@
 
                     <TextBlock x:Name="SpeedText"
                                Text="-- m/s"
+                               FontSize="22"
+                               FontWeight="Bold"
+                               Foreground="#38BDF8"
+                               Margin="0,0,0,20"/>
+
+
+                    <!-- PATH STATISTICS -->
+               
+
+                    <TextBlock Text="PATH POINTS"
+                               FontSize="11"
+                               FontWeight="SemiBold"
+                               Foreground="#94A3B8"/>
+
+                    <TextBlock x:Name="PointCountText"
+                               Text="0"
+                               FontSize="22"
+                               FontWeight="Bold"
+                               Foreground="#38BDF8"
+                               Margin="0,5,0,20"/>
+
+
+                    <TextBlock Text="DISTANCE TRAVELLED"
+                               FontSize="11"
+                               FontWeight="SemiBold"
+                               Foreground="#94A3B8"/>
+
+                    <TextBlock x:Name="DistanceText"
+                               Text="0.00 m"
                                FontSize="22"
                                FontWeight="Bold"
                                Foreground="#38BDF8"/>
