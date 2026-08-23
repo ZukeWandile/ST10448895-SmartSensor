@@ -13,51 +13,62 @@ namespace sensorX.Views
 {
     public partial class MotionScannerWindow : Window
     {
-        // Helper fields for simulation and data tracking
+        
+
+        // Simulation timers and tracking data
         private readonly Random _random = new();
         private readonly DispatcherTimer _scanTimer;
         private readonly List<MotionPoint> _motionPoints = new();
         private readonly MotionPathAnalyzer _pathAnalyzer;
         private DispatcherTimer? _replayTimer;
 
-        // Currently selected sensor and point data
+        // Active sensor and point state
         private Sensor? _selectedSensor;
         private MotionPoint? _currentPoint;
         private MotionNode? _motionSensorNode;
         private Point? _previousReplayPoint;
 
-        // Simulation coordinates (0-10 range)
+        // Simulation coordinates (bounded between 0 and 10)
         private double _currentX = 5;
         private double _currentY = 5;
 
-        // Stores the previous point drawn on the canvas to render path lines
+        // Canvas point trackers and batch storage
         private Point? _previousCanvasPoint;
-
-        // Stores the last batch of motion data for potential further processing
         private float[][]? _lastMotionBatch;
-
-        // Index for replaying motion data
         private int _replayIndex;
+
+        // Metrics tracking
+        private DateTime _scanStartTime;
+        private int _detectionCount;
+        private double _totalSpeed;
+        private double _maximumSpeed;
+        private double _totalConfidence;
+
+        // Centering offsets for canvas human figure
+        private const double HumanFigureHalfWidth = 30;
+        private const double HumanFigureVerticalOffset = 50;
+
+      
+
+       
 
         public MotionScannerWindow()
         {
             InitializeComponent();
 
-            // Initialize path analyzer service
             _pathAnalyzer = new MotionPathAnalyzer();
 
-            // Set up a timer to simulate periodic sensor scanning (every 500ms)
+            // Set up scan simulation timer (500ms intervals)
             _scanTimer = new DispatcherTimer
             {
                 Interval = TimeSpan.FromMilliseconds(500)
             };
             _scanTimer.Tick += ScanTimer_Tick;
 
-            // Populate the dropdown with motion sensors
             LoadMotionSensors();
         }
 
-        // Loads available motion sensors into the UI ComboBox
+        // Populates the dropdown with registered motion sensors
         private void LoadMotionSensors()
         {
             var motionSensors = SensorStore.Sensors
@@ -66,7 +77,6 @@ namespace sensorX.Views
 
             SensorComboBox.ItemsSource = motionSensors;
 
-            // Handle UI state if no sensors exist
             if (motionSensors.Count == 0)
             {
                 SensorInfoText.Text = "No registered motion sensors available.";
@@ -79,7 +89,11 @@ namespace sensorX.Views
             }
         }
 
-        // Handles sensor selection updates from the dropdown
+        
+
+       
+
+        // Handles dropdown selection changes
         private void SensorComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             _selectedSensor = SensorComboBox.SelectedItem as Sensor;
@@ -88,12 +102,10 @@ namespace sensorX.Views
                 return;
 
             SensorInfoText.Text = $"Location: {_selectedSensor.Location} | Node: {_selectedSensor.NodeId}";
-
-            // Reset state when switching sensors
             ResetScanner();
         }
 
-        // Starts the motion scan simulation
+        // Starts the live scan session
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             if (_selectedSensor == null)
@@ -103,7 +115,6 @@ namespace sensorX.Views
                     "No Sensor Selected",
                     MessageBoxButton.OK,
                     MessageBoxImage.Warning);
-
                 return;
             }
 
@@ -116,7 +127,6 @@ namespace sensorX.Views
                     "Validation Error",
                     MessageBoxButton.OK,
                     MessageBoxImage.Error);
-
                 return;
             }
 
@@ -125,22 +135,31 @@ namespace sensorX.Views
 
             ClearMotionPath();
 
+            // Reset scan statistics
+            _detectionCount = 0;
+            _totalSpeed = 0;
+            _maximumSpeed = 0;
+            _totalConfidence = 0;
+            _scanStartTime = DateTime.Now;
+
+            ClearStatisticsDisplay();
+
             _scanTimer.Start();
 
+            // Update UI state for active scanning
             StartButton.IsEnabled = false;
             StopButton.IsEnabled = true;
-
-            StatusText.Text = "ACTIVE";
-            StatusIndicator.Fill = Brushes.Green;
+            StatusText.Text = "SCANNING";
+            StatusIndicator.Fill = Brushes.LimeGreen;
         }
 
-        // Stops the scan via button click
+        // Stops live scanning
         private void StopButton_Click(object sender, RoutedEventArgs e)
         {
             StopScanning();
         }
 
-        // Stops the timer and resets UI status indicators
+        // Halts scan timer and saves raw motion batch
         private void StopScanning()
         {
             _scanTimer.Stop();
@@ -151,63 +170,73 @@ namespace sensorX.Views
             StatusText.Text = "STOPPED";
             StatusIndicator.Fill = Brushes.Gray;
 
-            // Convert the recorded motion points into the raw jagged array.
             _lastMotionBatch = ConvertMotionPointsToRawBatch();
         }
 
-        // Timer tick event to trigger new simulated readings
+        // Navigates back to dashboard
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            SensorDashBoard sensorDashBoard = new();
+            sensorDashBoard.Show();
+            Close();
+        }
+
+        
+
+        // Scan timer tick event handler
         private void ScanTimer_Tick(object? sender, EventArgs e)
         {
             GenerateMotionReading();
         }
 
-        // Generates random simulation readings for motion, confidence, and position
+        // Simulates sensor readings and updates UI stats
         private void GenerateMotionReading()
         {
-            // 80% chance to detect a person
             bool personDetected = _random.Next(100) < 80;
 
-            // Calculate confidence level based on detection status
             double confidence = personDetected
                 ? _random.NextDouble() * 10 + 90
                 : _random.NextDouble() * 20 + 60;
 
-            // Generate small random positional shifts
             double movementX = (_random.NextDouble() - 0.5) * 1.2;
             double movementY = (_random.NextDouble() - 0.5) * 1.2;
 
-            _currentX += movementX;
-            _currentY += movementY;
-
-            // Clamp positions within bounds (0 to 10)
-            if (_currentX < 0) _currentX = 0;
-            if (_currentX > 10) _currentX = 10;
-            if (_currentY < 0) _currentY = 0;
-            if (_currentY > 10) _currentY = 10;
+            _currentX = Math.Clamp(_currentX + movementX, 0, 10);
+            _currentY = Math.Clamp(_currentY + movementY, 0, 10);
 
             double xPosition = _currentX;
             double yPosition = _currentY;
             double speed = personDetected ? _random.NextDouble() * 3 : 0;
 
-            // Update UI metrics display
+            if (personDetected)
+            {
+                _detectionCount++;
+                _totalSpeed += speed;
+
+                if (speed > _maximumSpeed)
+                    _maximumSpeed = speed;
+
+                _totalConfidence += confidence;
+            }
+
+            // Update live metrics display
             MovementText.Text = personDetected ? "DETECTED" : "NO MOVEMENT";
             ConfidenceText.Text = $"{confidence:F1}%";
             XPositionText.Text = $"{xPosition:F2}";
             YPositionText.Text = $"{yPosition:F2}";
             SpeedText.Text = $"{speed:F2} m/s";
 
-            // Record data and draw path if a person was detected
             if (personDetected)
             {
                 AddMotionPoint((float)xPosition, (float)yPosition);
                 DrawMotionPath(xPosition, yPosition);
             }
 
-            // Update human graphic location on the Canvas
             UpdateHumanDisplay(personDetected, xPosition, yPosition);
+            UpdateStatisticsDisplay();
         }
 
-        // Stores tracked coordinates and calculates accumulated distance
+        // Adds tracked point and updates distance calculation
         private void AddMotionPoint(float x, float y)
         {
             MotionPoint currentPoint = new MotionPoint
@@ -220,14 +249,13 @@ namespace sensorX.Views
             _motionPoints.Add(currentPoint);
             _currentPoint = currentPoint;
 
-            // Calculate total distance traveled using path analyzer service
             double distance = _pathAnalyzer.CalculateDistance(_currentPoint);
 
             PointCountText.Text = _motionPoints.Count.ToString();
             DistanceText.Text = $"{distance:F2} m";
         }
 
-        // Renders visual path lines on the WPF Canvas element
+        // Renders visual path lines on canvas
         private void DrawMotionPath(double x, double y)
         {
             double canvasWidth = MotionCanvas.ActualWidth;
@@ -236,13 +264,11 @@ namespace sensorX.Views
             if (canvasWidth <= 0 || canvasHeight <= 0)
                 return;
 
-            // Scale coordinates from 0-10 domain to Canvas screen pixels
             double canvasX = (x / 10) * canvasWidth;
             double canvasY = (y / 10) * canvasHeight;
 
             Point currentPoint = new Point(canvasX, canvasY);
 
-            // Connect previous point to current point with a line
             if (_previousCanvasPoint.HasValue)
             {
                 Line pathLine = new Line
@@ -261,7 +287,7 @@ namespace sensorX.Views
             _previousCanvasPoint = currentPoint;
         }
 
-        // Updates the position and visual state of the target avatar on the UI
+        // Updates position of human icon on canvas
         private void UpdateHumanDisplay(bool detected, double x, double y)
         {
             if (!detected)
@@ -269,20 +295,20 @@ namespace sensorX.Views
                 HumanFigure.Visibility = Visibility.Hidden;
                 DetectionText.Text = "NO MOVEMENT";
                 DetectionText.Foreground = Brushes.Gray;
-
-                // Break the path until the next detection event occurs
                 _previousCanvasPoint = null;
                 return;
             }
 
             HumanFigure.Visibility = Visibility.Visible;
 
-            // Convert simulated coordinates into Canvas coordinates (adjusted for target icon size)
             double canvasWidth = MotionCanvas.ActualWidth;
             double canvasHeight = MotionCanvas.ActualHeight;
 
-            double left = (x / 10) * Math.Max(0, canvasWidth - 60);
-            double top = (y / 10) * Math.Max(0, canvasHeight - 100);
+            double canvasX = (x / 10) * canvasWidth;
+            double canvasY = (y / 10) * canvasHeight;
+
+            double left = Math.Max(0, canvasX - HumanFigureHalfWidth);
+            double top = Math.Max(0, canvasY - HumanFigureVerticalOffset);
 
             Canvas.SetLeft(HumanFigure, left);
             Canvas.SetTop(HumanFigure, top);
@@ -291,103 +317,8 @@ namespace sensorX.Views
             DetectionText.Foreground = Brushes.LightGreen;
         }
 
-        // Resets UI elements and internal state back to defaults
-        private void ResetScanner()
-        {
-            _scanTimer.Stop();
-
-            _motionPoints.Clear();
-            _currentPoint = null;
-
-            ClearMotionPath();
-
-            StartButton.IsEnabled = true;
-            StopButton.IsEnabled = false;
-
-            StatusText.Text = "STOPPED";
-            StatusIndicator.Fill = Brushes.Gray;
-
-            MovementText.Text = "--";
-            ConfidenceText.Text = "-- %";
-            XPositionText.Text = "--";
-            YPositionText.Text = "--";
-            SpeedText.Text = "-- m/s";
-
-            PointCountText.Text = "0";
-            DistanceText.Text = "0.00 m";
-
-            HumanFigure.Visibility = Visibility.Hidden;
-
-            DetectionText.Text = "NO MOVEMENT";
-            DetectionText.Foreground = Brushes.Gray;
-        }
-
-        // Converts motion points collection into a raw jagged array
-        private float[][] ConvertMotionPointsToRawBatch()
-        {
-            float[][] rawBatch = new float[_motionPoints.Count][];
-
-            for (int i = 0; i < _motionPoints.Count; i++)
-            {
-                rawBatch[i] = new float[]
-                {
-                    (float)_motionPoints[i].X,
-                    (float)_motionPoints[i].Y
-                };
-            }
-
-            return rawBatch;
-        }
-
-        // Builds a hierarchical structure for the motion sensor context
-        private void BuildMotionHierarchy()
-        {
-            MotionNode facility = new MotionNode("Facility A");
-
-            MotionNode zone = new MotionNode("Zone 1")
-            {
-                Parent = facility
-            };
-
-            MotionNode subZone = new MotionNode("SubZone B")
-            {
-                Parent = zone
-            };
-
-            _motionSensorNode = new MotionNode(_selectedSensor?.NodeId ?? "Motion Sensor")
-            {
-                Parent = subZone
-            };
-        }
-
-        // Validates the built motion sensor hierarchy
-        private bool ValidateMotionHierarchy()
-        {
-            if (_motionSensorNode == null)
-                return false;
-
-            MotionHierarchyValidator validator = new MotionHierarchyValidator();
-            return validator.Validate(_motionSensorNode);
-        }
-
-        // Removes line objects from the UI canvas and resets origin positions
-        private void ClearMotionPath()
-        {
-            for (int i = MotionCanvas.Children.Count - 1; i >= 0; i--)
-            {
-                if (MotionCanvas.Children[i] is Line)
-                {
-                    MotionCanvas.Children.RemoveAt(i);
-                }
-            }
-
-            _previousCanvasPoint = null;
-
-            _currentX = 5;
-            _currentY = 5;
-        }
-
-        // Handles the button click to replay the previously recorded motion path
+       
+        // Begins recorded path replay
         private void ReplayPathButton_Click(object sender, RoutedEventArgs e)
         {
             if (_lastMotionBatch == null || _lastMotionBatch.Length == 0)
@@ -397,25 +328,20 @@ namespace sensorX.Views
                     "No Path Available",
                     MessageBoxButton.OK,
                     MessageBoxImage.Information);
-
                 return;
             }
 
-            // Stop live scanning if it is running.
             _scanTimer.Stop();
 
             StartButton.IsEnabled = false;
             StopButton.IsEnabled = false;
 
-            // Clear the current visual path.
             ClearMotionPath();
 
-            // Start replay from the first point.
             _replayIndex = 0;
             _previousReplayPoint = null;
 
             _replayTimer?.Stop();
-
             _replayTimer = new DispatcherTimer
             {
                 Interval = TimeSpan.FromMilliseconds(300)
@@ -428,7 +354,7 @@ namespace sensorX.Views
             StatusIndicator.Fill = Brushes.DeepSkyBlue;
         }
 
-        // Timer tick event for handling path replay increments
+        // Replay timer tick handler
         private void ReplayTimer_Tick(object? sender, EventArgs e)
         {
             if (_lastMotionBatch == null)
@@ -441,16 +367,12 @@ namespace sensorX.Views
             }
 
             float[] point = _lastMotionBatch[_replayIndex];
-
-            double x = point[0];
-            double y = point[1];
-
-            DrawReplayPoint(x, y);
+            DrawReplayPoint(point[0], point[1]);
 
             _replayIndex++;
         }
 
-        // Renders individual points and connecting lines during path replay
+        // Draws lines and places human figure during replay
         private void DrawReplayPoint(double x, double y)
         {
             double canvasWidth = MotionCanvas.ActualWidth;
@@ -479,8 +401,8 @@ namespace sensorX.Views
                 MotionCanvas.Children.Add(replayLine);
             }
 
-            Canvas.SetLeft(HumanFigure, Math.Max(0, canvasX - 30));
-            Canvas.SetTop(HumanFigure, Math.Max(0, canvasY - 50));
+            Canvas.SetLeft(HumanFigure, Math.Max(0, canvasX - HumanFigureHalfWidth));
+            Canvas.SetTop(HumanFigure, Math.Max(0, canvasY - HumanFigureVerticalOffset));
 
             HumanFigure.Visibility = Visibility.Visible;
 
@@ -493,7 +415,7 @@ namespace sensorX.Views
             _previousReplayPoint = currentPoint;
         }
 
-        // Stops the replay timer and updates UI indicators
+        // Halts replay and resets status text
         private void StopReplay()
         {
             if (_replayTimer != null)
@@ -504,7 +426,6 @@ namespace sensorX.Views
             }
 
             _previousReplayPoint = null;
-
             StartButton.IsEnabled = true;
 
             StatusText.Text = "REPLAY COMPLETE";
@@ -514,24 +435,101 @@ namespace sensorX.Views
             DetectionText.Foreground = Brushes.LightGreen;
         }
 
-        // Ensures active timers are stopped when window is closed
-        protected override void OnClosed(EventArgs e)
+       
+
+        // Updates panel scan statistics values
+        private void UpdateStatisticsDisplay()
+        {
+            TimeSpan duration = DateTime.Now - _scanStartTime;
+
+            ScanTimeText.Text = duration.ToString(@"mm\:ss");
+            DetectionCountText.Text = _detectionCount.ToString();
+            PointCountText.Text = _motionPoints.Count.ToString();
+
+            if (_detectionCount > 0)
+            {
+                double averageSpeed = _totalSpeed / _detectionCount;
+                double averageConfidence = _totalConfidence / _detectionCount;
+
+                AverageSpeedText.Text = $"{averageSpeed:F2} m/s";
+                MaximumSpeedText.Text = $"{_maximumSpeed:F2} m/s";
+                AverageConfidenceText.Text = $"{averageConfidence:F1}%";
+            }
+            else
+            {
+                AverageSpeedText.Text = "0.00 m/s";
+                MaximumSpeedText.Text = "0.00 m/s";
+                AverageConfidenceText.Text = "0.0%";
+            }
+        }
+
+        // Clears calculated scan statistics UI fields
+        private void ClearStatisticsDisplay()
+        {
+            ScanTimeText.Text = "00:00";
+            DetectionCountText.Text = "0";
+            AverageSpeedText.Text = "0.00 m/s";
+            MaximumSpeedText.Text = "0.00 m/s";
+            AverageConfidenceText.Text = "0.0%";
+        }
+
+        // Resets scanner UI and internal tracking state
+        private void ResetScanner()
         {
             _scanTimer.Stop();
             _replayTimer?.Stop();
 
-            base.OnClosed(e);
+            _motionPoints.Clear();
+            _currentPoint = null;
+
+            ClearMotionPath();
+
+            StartButton.IsEnabled = true;
+            StopButton.IsEnabled = false;
+
+            StatusText.Text = "STOPPED";
+            StatusIndicator.Fill = Brushes.Gray;
+
+            MovementText.Text = "--";
+            ConfidenceText.Text = "-- %";
+            XPositionText.Text = "--";
+            YPositionText.Text = "--";
+            SpeedText.Text = "-- m/s";
+
+            PointCountText.Text = "0";
+            DistanceText.Text = "0.00 m";
+
+            HumanFigure.Visibility = Visibility.Hidden;
+
+            DetectionText.Text = "NO MOVEMENT";
+            DetectionText.Foreground = Brushes.Gray;
+
+            _detectionCount = 0;
+            _totalSpeed = 0;
+            _maximumSpeed = 0;
+            _totalConfidence = 0;
+            ClearStatisticsDisplay();
+
+            _lastMotionBatch = null;
         }
 
-        // Opens the dashboard window and closes this window
-        private void btnBack_Click(object sender, RoutedEventArgs e)
+        // Clears path lines from canvas and resets position defaults
+        private void ClearMotionPath()
         {
-            SensorDashBoard sensorDashBoard = new();
-            sensorDashBoard.Show();
-            Close();
+            for (int i = MotionCanvas.Children.Count - 1; i >= 0; i--)
+            {
+                if (MotionCanvas.Children[i] is Line)
+                {
+                    MotionCanvas.Children.RemoveAt(i);
+                }
+            }
+
+            _previousCanvasPoint = null;
+            _currentX = 5;
+            _currentY = 5;
         }
 
-        // Clears line data and resets active position UI text
+        // Clears stored path data, statistics, and canvas elements
         private void ClearPathButton_Click(object sender, RoutedEventArgs e)
         {
             _scanTimer.Stop();
@@ -542,6 +540,13 @@ namespace sensorX.Views
             _lastMotionBatch = null;
 
             ClearMotionPath();
+
+            _detectionCount = 0;
+            _totalSpeed = 0;
+            _maximumSpeed = 0;
+            _totalConfidence = 0;
+
+            ClearStatisticsDisplay();
 
             PointCountText.Text = "0";
             DistanceText.Text = "0.00 m";
@@ -560,5 +565,64 @@ namespace sensorX.Views
             StartButton.IsEnabled = true;
             StopButton.IsEnabled = false;
         }
+
+        // Converts point collection to a raw float array batch
+        private float[][] ConvertMotionPointsToRawBatch()
+        {
+            float[][] rawBatch = new float[_motionPoints.Count][];
+
+            for (int i = 0; i < _motionPoints.Count; i++)
+            {
+                rawBatch[i] = new float[]
+                {
+                    (float)_motionPoints[i].X,
+                    (float)_motionPoints[i].Y
+                };
+            }
+
+            return rawBatch;
+        }
+
+        // Builds hierarchy node network
+        private void BuildMotionHierarchy()
+        {
+            MotionNode facility = new MotionNode("Facility A");
+
+            MotionNode zone = new MotionNode("Zone 1")
+            {
+                Parent = facility
+            };
+
+            MotionNode subZone = new MotionNode("SubZone B")
+            {
+                Parent = zone
+            };
+
+            _motionSensorNode = new MotionNode(_selectedSensor?.NodeId ?? "Motion Sensor")
+            {
+                Parent = subZone
+            };
+        }
+
+        // Validates active hierarchy setup
+        private bool ValidateMotionHierarchy()
+        {
+            if (_motionSensorNode == null)
+                return false;
+
+            MotionHierarchyValidator validator = new MotionHierarchyValidator();
+            return validator.Validate(_motionSensorNode);
+        }
+
+        // Window closing cleanup
+        protected override void OnClosed(EventArgs e)
+        {
+            _scanTimer.Stop();
+            _replayTimer?.Stop();
+
+            base.OnClosed(e);
+        }
+
+        
     }
 }

@@ -7,6 +7,53 @@
         WindowStartupLocation="CenterScreen"
         Background="#08101C">
 
+    <Window.Resources>
+        <!-- CUSTOM DARK SLATE SCROLLBAR -->
+        <Style TargetType="ScrollBar">
+            <Setter Property="Background" Value="#0C1623"/>
+            <Setter Property="Width" Value="8"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ScrollBar">
+                        <Grid x:Name="Bg" Background="{TemplateBinding Background}">
+                            <Track x:Name="PART_Track" IsDirectionReversed="True">
+                                <Track.DecreaseRepeatButton>
+                                    <RepeatButton Command="{x:Static ScrollBar.PageUpCommand}"
+                                                  Opacity="0"
+                                                  Focusable="False"/>
+                                </Track.DecreaseRepeatButton>
+                                <Track.Thumb>
+                                    <Thumb x:Name="Thumb">
+                                        <Thumb.Template>
+                                            <ControlTemplate TargetType="Thumb">
+                                                <Border x:Name="ThumbBorder"
+                                                        Background="#1E293B"
+                                                        CornerRadius="4"/>
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter TargetName="ThumbBorder" Property="Background" Value="#38BDF8"/>
+                                                    </Trigger>
+                                                    <Trigger Property="IsDragging" Value="True">
+                                                        <Setter TargetName="ThumbBorder" Property="Background" Value="#0EA5E9"/>
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Thumb.Template>
+                                    </Thumb>
+                                </Track.Thumb>
+                                <Track.IncreaseRepeatButton>
+                                    <RepeatButton Command="{x:Static ScrollBar.PageDownCommand}"
+                                                  Opacity="0"
+                                                  Focusable="False"/>
+                                </Track.IncreaseRepeatButton>
+                            </Track>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <Grid Margin="30">
 
         <Grid.RowDefinitions>
@@ -18,8 +65,7 @@
 
         <!-- HEADER -->
 
-        <Grid Grid.Row="0"
-              Margin="0,0,0,20">
+        <Grid Grid.Row="0" Margin="0,0,0,20">
 
             <StackPanel HorizontalAlignment="Left">
 
@@ -53,14 +99,9 @@
                     Click="btnBack_Click">
 
                 <Button.Resources>
-
                     <Style TargetType="Border">
-
-                        <Setter Property="CornerRadius"
-                                Value="4"/>
-
+                        <Setter Property="CornerRadius" Value="4"/>
                     </Style>
-
                 </Button.Resources>
 
             </Button>
@@ -81,13 +122,9 @@
             <Grid>
 
                 <Grid.ColumnDefinitions>
-
                     <ColumnDefinition Width="Auto"/>
-
                     <ColumnDefinition Width="350"/>
-
                     <ColumnDefinition Width="*"/>
-
                 </Grid.ColumnDefinitions>
 
 
@@ -129,20 +166,15 @@
 
         <!-- MAIN AREA -->
 
-
         <Grid Grid.Row="2">
 
             <Grid.ColumnDefinitions>
-
                 <ColumnDefinition Width="2*"/>
-
                 <ColumnDefinition Width="*"/>
-
             </Grid.ColumnDefinitions>
 
 
             <!-- SCANNER AREA -->
-
 
             <Border Grid.Column="0"
                     Background="#0C1623"
@@ -155,16 +187,12 @@
                 <Grid>
 
                     <Grid.RowDefinitions>
-
                         <RowDefinition Height="*"/>
-
                         <RowDefinition Height="Auto"/>
-
                     </Grid.RowDefinitions>
 
 
                     <!-- MOTION CANVAS -->
-
 
                     <Border Grid.Row="0"
                             Background="#060C15"
@@ -176,7 +204,6 @@
 
 
                             <!-- HUMAN FIGURE -->
-
 
                             <StackPanel x:Name="HumanFigure"
                                         Canvas.Left="200"
@@ -203,7 +230,6 @@
 
                             <!-- DETECTION MESSAGE -->
 
-
                             <TextBlock x:Name="DetectionText"
                                        Text="NO MOVEMENT"
                                        Canvas.Left="175"
@@ -220,12 +246,9 @@
 
                     <!-- SCANNER CONTROLS -->
 
-
-                    <StackPanel Grid.Row="1"
-                                Margin="0,20,0,0">
+                    <StackPanel Grid.Row="1" Margin="0,20,0,0">
 
                         <WrapPanel>
-
 
                             <!-- START SCAN -->
 
@@ -242,14 +265,9 @@
                                     Margin="0,0,10,0">
 
                                 <Button.Resources>
-
                                     <Style TargetType="Border">
-
-                                        <Setter Property="CornerRadius"
-                                                Value="4"/>
-
+                                        <Setter Property="CornerRadius" Value="4"/>
                                     </Style>
-
                                 </Button.Resources>
 
                             </Button>
@@ -271,14 +289,9 @@
                                     IsEnabled="False">
 
                                 <Button.Resources>
-
                                     <Style TargetType="Border">
-
-                                        <Setter Property="CornerRadius"
-                                                Value="4"/>
-
+                                        <Setter Property="CornerRadius" Value="4"/>
                                     </Style>
-
                                 </Button.Resources>
 
                             </Button>
@@ -300,40 +313,31 @@
                                     Margin="10,0,0,0">
 
                                 <Button.Resources>
-
                                     <Style TargetType="Border">
-
-                                        <Setter Property="CornerRadius"
-                                                Value="4"/>
-
+                                        <Setter Property="CornerRadius" Value="4"/>
                                     </Style>
-
                                 </Button.Resources>
 
                             </Button>
-                            <!-- replay  -->
+
+                            <!-- REPLAY PATH -->
 
                             <Button x:Name="ReplayPathButton"
-        Content="REPLAY PATH"
-        Width="140"
-        Height="40"
-        Background="#38BDF8"
-        Foreground="#0F172A"
-        FontWeight="Bold"
-        BorderThickness="0"
-        Cursor="Hand"
-        Click="ReplayPathButton_Click"
-        Margin="10,0,0,0">
+                                    Content="REPLAY PATH"
+                                    Width="140"
+                                    Height="40"
+                                    Background="#38BDF8"
+                                    Foreground="#0F172A"
+                                    FontWeight="Bold"
+                                    BorderThickness="0"
+                                    Cursor="Hand"
+                                    Click="ReplayPathButton_Click"
+                                    Margin="10,0,0,0">
 
                                 <Button.Resources>
-
                                     <Style TargetType="Border">
-
-                                        <Setter Property="CornerRadius"
-                    Value="4"/>
-
+                                        <Setter Property="CornerRadius" Value="4"/>
                                     </Style>
-
                                 </Button.Resources>
 
                             </Button>
@@ -347,159 +351,228 @@
             </Border>
 
 
-            <!-- LIVE SENSOR DATA -->
+            <!-- LIVE SENSOR DATA PANEL (SCROLLABLE) -->
 
             <Border Grid.Column="1"
                     Background="#0C1623"
                     CornerRadius="8"
-                    Padding="25"
+                    Padding="20"
                     BorderBrush="#1E293B"
                     BorderThickness="1">
 
-                <StackPanel>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" 
+                              HorizontalScrollBarVisibility="Disabled">
 
+                    <StackPanel Margin="0,0,10,0">
 
-                    <!-- TITLE -->
+                        <!-- TITLE -->
 
-                    <TextBlock Text="LIVE SENSOR DATA"
-                               FontSize="18"
-                               FontWeight="Bold"
-                               Foreground="#FFFFFF"
-                               Margin="0,0,0,20"/>
-
-
-                    <!-- STATUS -->
-
-
-                    <TextBlock Text="STATUS"
-                               FontSize="11"
-                               FontWeight="SemiBold"
-                               Foreground="#94A3B8"/>
-
-                    <StackPanel Orientation="Horizontal"
-                                Margin="0,5,0,20">
-
-                        <Ellipse x:Name="StatusIndicator"
-                                 Width="10"
-                                 Height="10"
-                                 Fill="#64748B"
-                                 Margin="0,0,8,0"/>
-
-                        <TextBlock x:Name="StatusText"
-                                   Text="STOPPED"
+                        <TextBlock Text="LIVE SENSOR DATA"
+                                   FontSize="18"
                                    FontWeight="Bold"
+                                   Foreground="#FFFFFF"
+                                   Margin="0,0,0,20"/>
+
+
+                        <!-- STATUS -->
+
+                        <TextBlock Text="STATUS"
+                                   FontSize="11"
+                                   FontWeight="SemiBold"
                                    Foreground="#94A3B8"/>
+
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="0,5,0,20">
+
+                            <Ellipse x:Name="StatusIndicator"
+                                     Width="10"
+                                     Height="10"
+                                     Fill="#64748B"
+                                     Margin="0,0,8,0"/>
+
+                            <TextBlock x:Name="StatusText"
+                                       Text="STOPPED"
+                                       FontWeight="Bold"
+                                       Foreground="#94A3B8"/>
+
+                        </StackPanel>
+
+
+                        <!-- MOVEMENT -->
+
+                        <TextBlock Text="MOVEMENT"
+                                   FontSize="11"
+                                   FontWeight="SemiBold"
+                                   Foreground="#94A3B8"/>
+
+                        <TextBlock x:Name="MovementText"
+                                   Text="--"
+                                   FontSize="22"
+                                   FontWeight="Bold"
+                                   Foreground="#38BDF8"
+                                   Margin="0,5,0,20"/>
+
+
+                        <!-- CONFIDENCE -->
+
+                        <TextBlock Text="CONFIDENCE"
+                                   FontSize="11"
+                                   FontWeight="SemiBold"
+                                   Foreground="#94A3B8"/>
+
+                        <TextBlock x:Name="ConfidenceText"
+                                   Text="-- %"
+                                   FontSize="22"
+                                   FontWeight="Bold"
+                                   Foreground="#38BDF8"
+                                   Margin="0,5,0,20"/>
+
+
+                        <!-- X POSITION -->
+
+                        <TextBlock Text="X POSITION"
+                                   FontSize="11"
+                                   FontWeight="SemiBold"
+                                   Foreground="#94A3B8"/>
+
+                        <TextBlock x:Name="XPositionText"
+                                   Text="--"
+                                   FontSize="22"
+                                   FontWeight="Bold"
+                                   Foreground="#38BDF8"
+                                   Margin="0,5,0,20"/>
+
+
+                        <!-- Y POSITION -->
+
+                        <TextBlock Text="Y POSITION"
+                                   FontSize="11"
+                                   FontWeight="SemiBold"
+                                   Foreground="#94A3B8"/>
+
+                        <TextBlock x:Name="YPositionText"
+                                   Text="--"
+                                   FontSize="22"
+                                   FontWeight="Bold"
+                                   Foreground="#38BDF8"
+                                   Margin="0,5,0,20"/>
+
+
+                        <!-- MOVEMENT SPEED -->
+
+                        <TextBlock Text="MOVEMENT SPEED"
+                                   FontSize="11"
+                                   FontWeight="SemiBold"
+                                   Foreground="#94A3B8"/>
+
+                        <TextBlock x:Name="SpeedText"
+                                   Text="-- m/s"
+                                   FontSize="22"
+                                   FontWeight="Bold"
+                                   Foreground="#38BDF8"
+                                   Margin="0,0,0,20"/>
+
+                        <Separator Margin="0,5,0,20"
+                                   Background="#1E293B"/>
+
+
+                        <!-- SCAN STATISTICS -->
+
+                        <TextBlock Text="SCAN STATISTICS"
+                                   FontSize="16"
+                                   FontWeight="Bold"
+                                   Foreground="#FFFFFF"
+                                   Margin="0,0,0,15"/>
+
+                        <TextBlock Text="SCAN TIME"
+                                   FontSize="11"
+                                   FontWeight="SemiBold"
+                                   Foreground="#94A3B8"/>
+
+                        <TextBlock x:Name="ScanTimeText"
+                                   Text="00:00"
+                                   FontSize="18"
+                                   FontWeight="Bold"
+                                   Foreground="#38BDF8"
+                                   Margin="0,3,0,12"/>
+
+                        <TextBlock Text="DETECTIONS"
+                                   FontSize="11"
+                                   FontWeight="SemiBold"
+                                   Foreground="#94A3B8"/>
+
+                        <TextBlock x:Name="DetectionCountText"
+                                   Text="0"
+                                   FontSize="18"
+                                   FontWeight="Bold"
+                                   Foreground="#38BDF8"
+                                   Margin="0,3,0,12"/>
+
+                        <TextBlock Text="AVERAGE SPEED"
+                                   FontSize="11"
+                                   FontWeight="SemiBold"
+                                   Foreground="#94A3B8"/>
+
+                        <TextBlock x:Name="AverageSpeedText"
+                                   Text="0.00 m/s"
+                                   FontSize="18"
+                                   FontWeight="Bold"
+                                   Foreground="#38BDF8"
+                                   Margin="0,3,0,12"/>
+
+                        <TextBlock Text="MAXIMUM SPEED"
+                                   FontSize="11"
+                                   FontWeight="SemiBold"
+                                   Foreground="#94A3B8"/>
+
+                        <TextBlock x:Name="MaximumSpeedText"
+                                   Text="0.00 m/s"
+                                   FontSize="18"
+                                   FontWeight="Bold"
+                                   Foreground="#38BDF8"
+                                   Margin="0,3,0,12"/>
+
+                        <TextBlock Text="AVERAGE CONFIDENCE"
+                                   FontSize="11"
+                                   FontWeight="SemiBold"
+                                   Foreground="#94A3B8"/>
+
+                        <TextBlock x:Name="AverageConfidenceText"
+                                   Text="0.0%"
+                                   FontSize="18"
+                                   FontWeight="Bold"
+                                   Foreground="#38BDF8"
+                                   Margin="0,3,0,20"/>
+
+
+                        <!-- PATH STATISTICS -->
+
+                        <TextBlock Text="PATH POINTS"
+                                   FontSize="11"
+                                   FontWeight="SemiBold"
+                                   Foreground="#94A3B8"/>
+
+                        <TextBlock x:Name="PointCountText"
+                                   Text="0"
+                                   FontSize="22"
+                                   FontWeight="Bold"
+                                   Foreground="#38BDF8"
+                                   Margin="0,5,0,20"/>
+
+                        <TextBlock Text="DISTANCE TRAVELLED"
+                                   FontSize="11"
+                                   FontWeight="SemiBold"
+                                   Foreground="#94A3B8"/>
+
+                        <TextBlock x:Name="DistanceText"
+                                   Text="0.00 m"
+                                   FontSize="22"
+                                   FontWeight="Bold"
+                                   Foreground="#38BDF8"/>
 
                     </StackPanel>
 
-                    <!-- MOVEMENT -->
-
-
-                    <TextBlock Text="MOVEMENT"
-                               FontSize="11"
-                               FontWeight="SemiBold"
-                               Foreground="#94A3B8"/>
-
-                    <TextBlock x:Name="MovementText"
-                               Text="--"
-                               FontSize="22"
-                               FontWeight="Bold"
-                               Foreground="#38BDF8"
-                               Margin="0,5,0,20"/>
-
-
-
-                    <!-- CONFIDENCE -->
-
-                    <TextBlock Text="CONFIDENCE"
-                               FontSize="11"
-                               FontWeight="SemiBold"
-                               Foreground="#94A3B8"/>
-
-                    <TextBlock x:Name="ConfidenceText"
-                               Text="-- %"
-                               FontSize="22"
-                               FontWeight="Bold"
-                               Foreground="#38BDF8"
-                               Margin="0,5,0,20"/>
-
-
-
-                    <!-- X POSITION -->
-
-                    <TextBlock Text="X POSITION"
-                               FontSize="11"
-                               FontWeight="SemiBold"
-                               Foreground="#94A3B8"/>
-
-                    <TextBlock x:Name="XPositionText"
-                               Text="--"
-                               FontSize="22"
-                               FontWeight="Bold"
-                               Foreground="#38BDF8"
-                               Margin="0,5,0,20"/>
-
-
-                    <!-- Y POSITION -->
-
-
-                    <TextBlock Text="Y POSITION"
-                               FontSize="11"
-                               FontWeight="SemiBold"
-                               Foreground="#94A3B8"/>
-
-                    <TextBlock x:Name="YPositionText"
-                               Text="--"
-                               FontSize="22"
-                               FontWeight="Bold"
-                               Foreground="#38BDF8"
-                               Margin="0,5,0,20"/>
-
-
-                    <!-- MOVEMENT SPEED -->
-
-
-                    <TextBlock Text="MOVEMENT SPEED"
-                               FontSize="11"
-                               FontWeight="SemiBold"
-                               Foreground="#94A3B8"/>
-
-                    <TextBlock x:Name="SpeedText"
-                               Text="-- m/s"
-                               FontSize="22"
-                               FontWeight="Bold"
-                               Foreground="#38BDF8"
-                               Margin="0,0,0,20"/>
-
-
-                    <!-- PATH STATISTICS -->
-               
-
-                    <TextBlock Text="PATH POINTS"
-                               FontSize="11"
-                               FontWeight="SemiBold"
-                               Foreground="#94A3B8"/>
-
-                    <TextBlock x:Name="PointCountText"
-                               Text="0"
-                               FontSize="22"
-                               FontWeight="Bold"
-                               Foreground="#38BDF8"
-                               Margin="0,5,0,20"/>
-
-
-                    <TextBlock Text="DISTANCE TRAVELLED"
-                               FontSize="11"
-                               FontWeight="SemiBold"
-                               Foreground="#94A3B8"/>
-
-                    <TextBlock x:Name="DistanceText"
-                               Text="0.00 m"
-                               FontSize="22"
-                               FontWeight="Bold"
-                               Foreground="#38BDF8"/>
-
-                </StackPanel>
+                </ScrollViewer>
 
             </Border>
 
