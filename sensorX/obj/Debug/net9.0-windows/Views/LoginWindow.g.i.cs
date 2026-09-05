@@ -123,7 +123,7 @@ namespace sensorX.Views {
             case 5:
             
             #line 76 "..\..\..\..\Views\LoginWindow.xaml"
-            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.BtnSignIn_Click);
+            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.BtnSignIn_ClickAsync);
             
             #line default
             #line hidden
