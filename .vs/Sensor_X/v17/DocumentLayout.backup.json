@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|c:\\users\\wzuke\\downloads\\st10448895-smartsensor\\sensorx\\services\\firebaseauthresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|solutionrelative:sensorx\\services\\firebaseauthresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|c:\\users\\wzuke\\downloads\\st10448895-smartsensor\\sensorx\\views\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|solutionrelative:sensorx\\views\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|c:\\users\\wzuke\\downloads\\st10448895-smartsensor\\sensorx\\services\\firebaseauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|solutionrelative:sensorx\\services\\firebaseauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|c:\\users\\wzuke\\downloads\\st10448895-smartsensor\\sensorx\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|solutionrelative:sensorx\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|c:\\users\\wzuke\\downloads\\st10448895-smartsensor\\sensorx\\services\\firebasesettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|solutionrelative:sensorx\\services\\firebasesettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|c:\\users\\wzuke\\downloads\\st10448895-smartsensor\\sensorx\\views\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|solutionrelative:sensorx\\views\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{635412EC-F2D4-44AB-90BB-D376C55A04AA}|API-X\\API-X.csproj|c:\\users\\wzuke\\downloads\\st10448895-smartsensor\\api-x\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{635412EC-F2D4-44AB-90BB-D376C55A04AA}|API-X\\API-X.csproj|solutionrelative:api-x\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|c:\\users\\wzuke\\downloads\\st10448895-smartsensor\\sensorx\\services\\firebaseauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|solutionrelative:sensorx\\services\\firebaseauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|c:\\users\\wzuke\\downloads\\st10448895-smartsensor\\sensorx\\views\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -51,43 +51,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FirebaseAuthResult.cs",
-              "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Services\\FirebaseAuthResult.cs",
-              "RelativeDocumentMoniker": "sensorX\\Services\\FirebaseAuthResult.cs",
-              "ToolTip": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Services\\FirebaseAuthResult.cs",
-              "RelativeToolTip": "sensorX\\Services\\FirebaseAuthResult.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAgAAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-06T20:23:28.303Z",
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\appsettings.json",
+              "RelativeDocumentMoniker": "sensorX\\appsettings.json",
+              "ToolTip": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\appsettings.json",
+              "RelativeToolTip": "sensorX\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-06T22:26:17.748Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "FirebaseAuthService.cs",
               "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Services\\FirebaseAuthService.cs",
               "RelativeDocumentMoniker": "sensorX\\Services\\FirebaseAuthService.cs",
               "ToolTip": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Services\\FirebaseAuthService.cs",
               "RelativeToolTip": "sensorX\\Services\\FirebaseAuthService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAwwGkAAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-06T20:23:10.98Z"
+              "WhenOpened": "2026-09-06T20:23:10.98Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "FirebaseSettings.cs",
               "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Services\\FirebaseSettings.cs",
               "RelativeDocumentMoniker": "sensorX\\Services\\FirebaseSettings.cs",
               "ToolTip": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Services\\FirebaseSettings.cs",
               "RelativeToolTip": "sensorX\\Services\\FirebaseSettings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-06T20:22:39.737Z"
+              "WhenOpened": "2026-09-06T20:22:39.737Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\API-X\\Program.cs",
               "RelativeDocumentMoniker": "API-X\\Program.cs",
@@ -95,17 +97,18 @@
               "RelativeToolTip": "API-X\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-06T20:20:04.87Z"
+              "WhenOpened": "2026-09-06T20:20:04.87Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "LoginWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Views\\LoginWindow.xaml.cs",
               "RelativeDocumentMoniker": "sensorX\\Views\\LoginWindow.xaml.cs",
               "ToolTip": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Views\\LoginWindow.xaml.cs",
               "RelativeToolTip": "sensorX\\Views\\LoginWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAsAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-05T13:44:51.172Z",
               "EditorCaption": ""

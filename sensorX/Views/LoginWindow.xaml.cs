@@ -2,12 +2,14 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using sensorX.Services;
 
 namespace sensorX.Views
 {
 
     public partial class LoginWindow : Window
     {
+        private readonly FirebaseAuthService _authService;
         public LoginWindow()
         {
             InitializeComponent();
