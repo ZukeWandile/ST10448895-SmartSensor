@@ -60,7 +60,7 @@
               "RelativeDocumentMoniker": "sensorX\\Services\\FirebaseAuthResponse.cs",
               "ToolTip": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Services\\FirebaseAuthResponse.cs",
               "RelativeToolTip": "sensorX\\Services\\FirebaseAuthResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-06T20:23:50.798Z",
               "EditorCaption": ""
@@ -75,8 +75,7 @@
               "RelativeToolTip": "sensorX\\Services\\FirebaseAuthResult.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-06T20:23:28.303Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-06T20:23:28.303Z"
             },
             {
               "$type": "Document",
@@ -88,8 +87,7 @@
               "RelativeToolTip": "sensorX\\Services\\FirebaseAuthService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-06T20:23:10.98Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-06T20:23:10.98Z"
             },
             {
               "$type": "Document",
@@ -101,8 +99,7 @@
               "RelativeToolTip": "sensorX\\Services\\FirebaseSettings.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-06T20:22:39.737Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-06T20:22:39.737Z"
             },
             {
               "$type": "Document",
@@ -114,8 +111,7 @@
               "RelativeToolTip": "API-X\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-06T20:20:04.87Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-06T20:20:04.87Z"
             },
             {
               "$type": "Document",
@@ -127,8 +123,7 @@
               "RelativeToolTip": "sensorX\\Views\\LoginWindow.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-05T13:44:51.172Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-05T13:44:51.172Z"
             },
             {
               "$type": "Document",
@@ -139,8 +134,7 @@
               "ToolTip": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Views\\LoginWindow.xaml",
               "RelativeToolTip": "sensorX\\Views\\LoginWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-09-05T15:36:38.296Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-05T15:36:38.296Z"
             }
           ]
         }
