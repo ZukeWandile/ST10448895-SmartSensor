@@ -92,7 +92,7 @@ namespace sensorX.Views
             MessageBox.Show("Continuing as guest .", "Guest Access",
                             MessageBoxButton.OK, MessageBoxImage.Information);
 
-            // TODO: Navigate to guest session view
+            // Navigate to guest session view
             GatewayWindow GW = new GatewayWindow();
             GW.Show();
             this.Close();
