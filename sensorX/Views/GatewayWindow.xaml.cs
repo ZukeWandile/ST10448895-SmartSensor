@@ -10,7 +10,7 @@ namespace sensorX.Views
     {
         // API client instance 
         // check API_X's Properties/launchSettings.json for the  port
-        private readonly ApiClient _api = new ApiClient("https://localhost:7100");
+        private readonly ApiClient _api = new ApiClient("https://localhost:7055");
 
         // Timer to keep re-checking API status every few seconds while window is open
         private readonly DispatcherTimer _pollTimer = new DispatcherTimer

@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using sensorX.Services;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using sensorX.Services;
 
 namespace sensorX.Views
 {
@@ -13,16 +14,23 @@ namespace sensorX.Views
         public LoginWindow()
         {
             InitializeComponent();
+
+            IConfiguration configuration = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", optional: false)
+                .Build();
+
+            FirebaseSettings settings = new();
+            configuration.GetSection("Firebase").Bind(settings);
+
+            _authService = new FirebaseAuthService(settings);
         }
 
         // Handles the Sign In action.
-        private async Task BtnSignIn_ClickAsync(object sender, RoutedEventArgs e)
+        private async void BtnSignIn_Click(object sender, RoutedEventArgs e)
         {
-
             string email = TxtEmail.Text.Trim();
             string password = TxtPassword.Password;
 
-            // 1. Check for empty fields
             if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show("Please enter both email and password.", "Sign In",
@@ -30,7 +38,6 @@ namespace sensorX.Views
                 return;
             }
 
-            // 2. Validate email format BEFORE making the network request
             try
             {
                 var addr = new System.Net.Mail.MailAddress(email);
@@ -47,7 +54,6 @@ namespace sensorX.Views
 
             try
             {
-                //  Attempt Firebase Sign In
                 var result = await _authService.SignInAsync(email, password);
 
                 if (result.IsSuccess)
@@ -68,8 +74,7 @@ namespace sensorX.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                    ex.Message,
+                MessageBox.Show(ex.Message,
                     "Unexpected Error",
                     MessageBoxButton.OK,
                     MessageBoxImage.Error);

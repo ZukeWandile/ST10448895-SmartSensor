@@ -72,7 +72,7 @@
                         </Border>
 
                         <!-- Sign In Button -->
-                        <Button Content="Sign in" Height="40" Background="#38BDF8" Foreground="#0F172A" 
+                        <Button x:Name="BtnSignIn" Content="Sign in" Height="40" Background="#38BDF8" Foreground="#0F172A" 
                                 FontWeight="Bold" FontSize="13" Margin="0,0,0,12" Cursor="Hand" Click="BtnSignIn_Click">
                             <Button.Resources>
                                 <Style TargetType="Border">

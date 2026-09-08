@@ -85,7 +85,7 @@ namespace sensorX.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/sensorX;V1.0.0.0;component/views/sensordashboard.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/sensorX;component/views/sensordashboard.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\SensorDashBoard.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
