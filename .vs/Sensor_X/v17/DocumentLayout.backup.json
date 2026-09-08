@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|c:\\users\\wzuke\\downloads\\st10448895-smartsensor\\sensorx\\models\\sensorattachment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|solutionrelative:sensorx\\models\\sensorattachment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|c:\\users\\wzuke\\downloads\\st10448895-smartsensor\\sensorx\\services\\attachmentstorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|solutionrelative:sensorx\\services\\attachmentstorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|c:\\users\\wzuke\\downloads\\st10448895-smartsensor\\sensorx\\models\\sensor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|solutionrelative:sensorx\\models\\sensor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,14 +35,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SensorAttachment.cs",
-              "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Models\\SensorAttachment.cs",
-              "RelativeDocumentMoniker": "sensorX\\Models\\SensorAttachment.cs",
-              "ToolTip": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Models\\SensorAttachment.cs",
-              "RelativeToolTip": "sensorX\\Models\\SensorAttachment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "AttachmentStorageService.cs",
+              "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Services\\AttachmentStorageService.cs",
+              "RelativeDocumentMoniker": "sensorX\\Services\\AttachmentStorageService.cs",
+              "ToolTip": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Services\\AttachmentStorageService.cs",
+              "RelativeToolTip": "sensorX\\Services\\AttachmentStorageService.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwCwAAABhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-08T11:33:06.986Z",
+              "WhenOpened": "2026-09-08T11:39:22.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Sensor.cs",
+              "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Models\\Sensor.cs",
+              "RelativeDocumentMoniker": "sensorX\\Models\\Sensor.cs",
+              "ToolTip": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Models\\Sensor.cs",
+              "RelativeToolTip": "sensorX\\Models\\Sensor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-08T11:37:37.175Z",
               "EditorCaption": ""
             }
           ]

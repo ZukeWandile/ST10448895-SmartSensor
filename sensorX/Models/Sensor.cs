@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,8 @@ namespace sensorX.Models
 
         public string DateRegistered { get; set; } = string.Empty;
 
-        public string DisplayName => $"{NodeId} - {Location}"; 
+        public string DisplayName => $"{NodeId} - {Location}";
+        // files attached to this sensor profile
+        public ObservableCollection<SensorAttachment> Attachments { get; set; } = new();
     }
 }
