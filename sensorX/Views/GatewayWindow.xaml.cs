@@ -30,5 +30,20 @@ namespace sensorX.Views
             sensorDashBoard.Show();
             this.Close();
         }
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            bool online = await _api.IsApiOnlineAsync();
+
+            if (online)
+            {
+                txtApiStatus.Text = "API Connected";
+                txtApiStatus.Foreground = Brushes.LimeGreen;
+            }
+            else
+            {
+                txtApiStatus.Text = "API Offline";
+                txtApiStatus.Foreground = Brushes.Red;
+            }
+        }
     }
 }
