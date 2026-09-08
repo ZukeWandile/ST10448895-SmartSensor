@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|c:\\users\\wzuke\\downloads\\st10448895-smartsensor\\sensorx\\views\\gatewaywindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|solutionrelative:sensorx\\views\\gatewaywindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|c:\\users\\wzuke\\downloads\\st10448895-smartsensor\\sensorx\\views\\gatewaywindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|solutionrelative:sensorx\\views\\gatewaywindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|c:\\users\\wzuke\\downloads\\st10448895-smartsensor\\sensorx\\views\\gatewaywindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|solutionrelative:sensorx\\views\\gatewaywindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|c:\\users\\wzuke\\downloads\\st10448895-smartsensor\\sensorx\\services\\apiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|solutionrelative:sensorx\\services\\apiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{635412EC-F2D4-44AB-90BB-D376C55A04AA}|API-X\\API-X.csproj|c:\\users\\wzuke\\downloads\\st10448895-smartsensor\\api-x\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,7 +42,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "ApiClient.cs",
+              "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Services\\ApiClient.cs",
+              "RelativeDocumentMoniker": "sensorX\\Services\\ApiClient.cs",
+              "ToolTip": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Services\\ApiClient.cs",
+              "RelativeToolTip": "sensorX\\Services\\ApiClient.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwA4AAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-08T00:45:55.821Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "GatewayWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Views\\GatewayWindow.xaml.cs",
               "RelativeDocumentMoniker": "sensorX\\Views\\GatewayWindow.xaml.cs",
@@ -51,7 +68,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "GatewayWindow.xaml",
               "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Views\\GatewayWindow.xaml",
               "RelativeDocumentMoniker": "sensorX\\Views\\GatewayWindow.xaml",
@@ -63,7 +80,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\API-X\\Program.cs",
               "RelativeDocumentMoniker": "API-X\\Program.cs",
