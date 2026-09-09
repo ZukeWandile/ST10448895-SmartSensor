@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("API-X")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b09174624057f6555b561b453165fbf1db1d038c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+07ea593f4b289bd253e7bf70248b57cdcf3b24f7")]
 [assembly: System.Reflection.AssemblyProductAttribute("API-X")]
 [assembly: System.Reflection.AssemblyTitleAttribute("API-X")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
