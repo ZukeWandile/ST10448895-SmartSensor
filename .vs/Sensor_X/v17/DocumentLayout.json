@@ -3,24 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|c:\\users\\wzuke\\downloads\\st10448895-smartsensor\\sensorx\\views\\sensorwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|solutionrelative:sensorx\\views\\sensorwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|c:\\users\\wzuke\\downloads\\st10448895-smartsensor\\sensorx\\views\\sensorwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|solutionrelative:sensorx\\views\\sensorwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|c:\\users\\wzuke\\downloads\\st10448895-smartsensor\\sensorx\\views\\sensorattachmentswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|solutionrelative:sensorx\\views\\sensorattachmentswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|c:\\users\\wzuke\\downloads\\st10448895-smartsensor\\sensorx\\views\\sensorattachmentswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|solutionrelative:sensorx\\views\\sensorattachmentswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|c:\\users\\wzuke\\downloads\\st10448895-smartsensor\\sensorx\\models\\sensor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|solutionrelative:sensorx\\models\\sensor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|c:\\users\\wzuke\\downloads\\st10448895-smartsensor\\sensorx\\views\\signupwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3DD12357-E16F-4395-AD74-5365FF94D4D6}|sensorX\\sensorX.csproj|solutionrelative:sensorx\\views\\signupwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -47,61 +31,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SensorWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Views\\SensorWindow.xaml.cs",
-              "RelativeDocumentMoniker": "sensorX\\Views\\SensorWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Views\\SensorWindow.xaml.cs",
-              "RelativeToolTip": "sensorX\\Views\\SensorWindow.xaml.cs",
-              "ViewState": "AgIAAIkAAAAAAAAAAAAqwLYAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-08T18:09:26.678Z",
+              "Title": "SignUpWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Views\\SignUpWindow.xaml",
+              "RelativeDocumentMoniker": "sensorX\\Views\\SignUpWindow.xaml",
+              "ToolTip": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Views\\SignUpWindow.xaml",
+              "RelativeToolTip": "sensorX\\Views\\SignUpWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-09-09T15:05:19.374Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SensorWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Views\\SensorWindow.xaml",
-              "RelativeDocumentMoniker": "sensorX\\Views\\SensorWindow.xaml",
-              "ToolTip": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Views\\SensorWindow.xaml",
-              "RelativeToolTip": "sensorX\\Views\\SensorWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-09-08T18:07:55.433Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SensorAttachmentsWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Views\\SensorAttachmentsWindow.xaml.cs",
-              "RelativeDocumentMoniker": "sensorX\\Views\\SensorAttachmentsWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Views\\SensorAttachmentsWindow.xaml.cs",
-              "RelativeToolTip": "sensorX\\Views\\SensorAttachmentsWindow.xaml.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAIwEsAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-08T16:22:34.158Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SensorAttachmentsWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Views\\SensorAttachmentsWindow.xaml",
-              "RelativeDocumentMoniker": "sensorX\\Views\\SensorAttachmentsWindow.xaml",
-              "ToolTip": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Views\\SensorAttachmentsWindow.xaml",
-              "RelativeToolTip": "sensorX\\Views\\SensorAttachmentsWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-09-08T16:21:40.373Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Sensor.cs",
-              "DocumentMoniker": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Models\\Sensor.cs",
-              "RelativeDocumentMoniker": "sensorX\\Models\\Sensor.cs",
-              "ToolTip": "C:\\Users\\wzuke\\Downloads\\ST10448895-SmartSensor\\sensorX\\Models\\Sensor.cs",
-              "RelativeToolTip": "sensorX\\Models\\Sensor.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-08T11:37:37.175Z"
             }
           ]
         }

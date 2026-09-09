@@ -5,8 +5,227 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:sensorX.Views"
         mc:Ignorable="d"
-        Title="SignUpWindow" Height="450" Width="800">
+        Title="SMART X - Sign Up"
+        Height="550"
+        Width="800"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize">
+
     <Grid>
-        
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- LEFT PANEL -->
+        <Border Grid.Column="0"
+                Background="#111A24"
+                ClipToBounds="True">
+
+            <Grid VerticalAlignment="Center"
+                  HorizontalAlignment="Center">
+
+                <!-- Background Accent Circle -->
+                <Ellipse Width="350"
+                         Height="350"
+                         Stroke="#1E3348"
+                         StrokeThickness="2"
+                         Opacity="0.35"/>
+
+                <!-- Text Only - No Logo -->
+                <StackPanel VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Margin="20">
+
+                    <TextBlock Text="SMART-X"
+                               FontSize="30"
+                               FontWeight="Bold"
+                               Foreground="White"
+                               HorizontalAlignment="Center"/>
+
+                    <TextBlock Text="Vision System"
+                               FontSize="14"
+                               Foreground="#6FA8FF"
+                               Margin="0,8,0,0"
+                               HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+            </Grid>
+        </Border>
+
+
+        <!-- RIGHT PANEL -->
+        <Border Grid.Column="1"
+                Background="White"
+                Padding="35,20">
+
+            <StackPanel VerticalAlignment="Center"
+                        HorizontalAlignment="Stretch">
+
+                <!-- HEADING -->
+                <TextBlock Text="Create Account"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Left"
+                           Foreground="#152238"/>
+
+                <TextBlock Text="Create your Smart-X Vision account"
+                           FontSize="13"
+                           Margin="0,4,0,20"
+                           HorizontalAlignment="Left"
+                           Foreground="#64748B"/>
+
+
+                <!-- FULL NAME -->
+                <TextBlock Text="Full Name"
+                           FontSize="12"
+                           FontWeight="SemiBold"
+                           Margin="0,0,0,4"
+                           Foreground="#374151"/>
+
+                <Border Height="38"
+                        CornerRadius="6"
+                        BorderBrush="#D1D5DB"
+                        BorderThickness="1"
+                        Margin="0,0,0,12">
+
+                    <TextBox x:Name="txtFullName"
+                             Margin="10,0"
+                             BorderThickness="0"
+                             Background="Transparent"
+                             FontSize="13"
+                             VerticalContentAlignment="Center"/>
+                </Border>
+
+
+                <!-- EMAIL -->
+                <TextBlock Text="Email Address"
+                           FontSize="12"
+                           FontWeight="SemiBold"
+                           Margin="0,0,0,4"
+                           Foreground="#374151"/>
+
+                <Border Height="38"
+                        CornerRadius="6"
+                        BorderBrush="#6FA8FF"
+                        BorderThickness="1.5"
+                        Margin="0,0,0,12">
+
+                    <TextBox x:Name="txtEmail"
+                             Margin="10,0"
+                             BorderThickness="0"
+                             Background="Transparent"
+                             FontSize="13"
+                             VerticalContentAlignment="Center"/>
+                </Border>
+
+
+                <!-- PASSWORD -->
+                <TextBlock Text="Password"
+                           FontSize="12"
+                           FontWeight="SemiBold"
+                           Margin="0,0,0,4"
+                           Foreground="#374151"/>
+
+                <Border Height="38"
+                        CornerRadius="6"
+                        BorderBrush="#D1D5DB"
+                        BorderThickness="1"
+                        Margin="0,0,0,12">
+
+                    <PasswordBox x:Name="txtPassword"
+                                 Margin="10,0"
+                                 BorderThickness="0"
+                                 Background="Transparent"
+                                 FontSize="13"
+                                 VerticalContentAlignment="Center"/>
+                </Border>
+
+
+                <!-- CONFIRM PASSWORD -->
+                <TextBlock Text="Confirm Password"
+                           FontSize="12"
+                           FontWeight="SemiBold"
+                           Margin="0,0,0,4"
+                           Foreground="#374151"/>
+
+                <Border Height="38"
+                        CornerRadius="6"
+                        BorderBrush="#D1D5DB"
+                        BorderThickness="1"
+                        Margin="0,0,0,20">
+
+                    <PasswordBox x:Name="txtConfirmPassword"
+                                 Margin="10,0"
+                                 BorderThickness="0"
+                                 Background="Transparent"
+                                 FontSize="13"
+                                 VerticalContentAlignment="Center"/>
+                </Border>
+
+
+                <!-- BUTTONS -->
+                <Grid Margin="0,0,0,15">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="12"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <!-- CREATE ACCOUNT -->
+                    <Button x:Name="btnCreateAccount"
+                            Grid.Column="0"
+                            Height="40"
+                            FontSize="14"
+                            FontWeight="SemiBold"
+                            Background="#3B82F6"
+                            Foreground="White"
+                            BorderThickness="0"
+                            Cursor="Hand"
+                            Content="Create Account"
+                            Click="btnCreateAccount_Click"/>
+
+
+                    <!-- BACK TO LOGIN -->
+                    <Button x:Name="btnBackToLogin"
+                            Grid.Column="2"
+                            Height="40"
+                            FontSize="14"
+                            FontWeight="SemiBold"
+                            Background="White"
+                            BorderBrush="#D1D5DB"
+                            BorderThickness="1"
+                            Foreground="#2563EB"
+                            Cursor="Hand"
+                            Content="Back to Login"
+                            Click="btnBackToLogin_Click"/>
+
+                </Grid>
+
+
+                <!-- LOGIN LINK -->
+                <TextBlock HorizontalAlignment="Center"
+                           FontSize="12"
+                           Foreground="#64748B">
+
+                    Already have an account?
+
+                    <Hyperlink Click="btnBackToLogin_Click"
+                               Foreground="#2563EB"
+                               TextDecorations="None">
+                        Sign in
+                    </Hyperlink>
+
+                </TextBlock>
+
+            </StackPanel>
+
+        </Border>
+
     </Grid>
+
 </Window>
