@@ -203,6 +203,16 @@
                             <DataGridTextColumn Header="Category" Binding="{Binding Category}" Width="110"/>
                             <DataGridTextColumn Header="Node" Binding="{Binding NodeId}" Width="70"/>
                             <DataGridTextColumn Header="Date Registered" Binding="{Binding DateRegistered}" Width="130"/>
+                            <DataGridTemplateColumn Header="Files" Width="90">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="{Binding Attachments.Count, StringFormat='Files ({0})'}"
+                                                Click="BtnViewAttachments_Click"
+                                                Background="#1E293B" Foreground="#38BDF8" BorderThickness="0"
+                                                Padding="8,4" Cursor="Hand"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Border>

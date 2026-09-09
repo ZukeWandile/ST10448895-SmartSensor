@@ -41,3 +41,5 @@ C:\Users\wzuke\Downloads\ST10448895-SmartSensor\sensorX\obj\Debug\net9.0-windows
 C:\Users\wzuke\Downloads\ST10448895-SmartSensor\sensorX\obj\Debug\net9.0-windows\sensorX.csproj.Up2Date
 C:\Users\wzuke\Downloads\ST10448895-SmartSensor\sensorX\bin\Debug\net9.0-windows\appsettings.json
 C:\Users\wzuke\Downloads\ST10448895-SmartSensor\sensorX\obj\Debug\net9.0-windows\sensorX_Content.g.cs
+C:\Users\wzuke\Downloads\ST10448895-SmartSensor\sensorX\obj\Debug\net9.0-windows\Views\SensorAttachmentsWindow.baml
+C:\Users\wzuke\Downloads\ST10448895-SmartSensor\sensorX\obj\Debug\net9.0-windows\Views\SensorAttachmentsWindow.g.cs

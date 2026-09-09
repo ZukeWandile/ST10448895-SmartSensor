@@ -169,5 +169,17 @@ namespace sensorX.Views
 
             cmbCategory.SelectedIndex = 0;
         }
+        private void BtnViewAttachments_Click(object sender, RoutedEventArgs e)
+        {
+            // Check if the sender is a Button and its DataContext corresponds to a specific Sensor
+            if (sender is Button btn && btn.DataContext is Sensor sensor)
+            {
+                // Create the attachments window for this sensor and set the current window as its owner
+                var attachmentsWindow = new SensorAttachmentsWindow(sensor) { Owner = this };
+
+                // Open the attachments window as a modal dialog (blocking interaction with the main window until closed)
+                attachmentsWindow.ShowDialog();
+            }
+        }
     }
 }
