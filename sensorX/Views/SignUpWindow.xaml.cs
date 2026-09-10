@@ -41,7 +41,7 @@ namespace sensorX.Views
         private async void btnCreateAccount_Click(object sender, RoutedEventArgs e)
         {
             // Retrieve user input from the form fields
-            // string Name = txtFullName.Text.Trim();
+            string Name = txtFullName.Text.Trim();
             string Email = txtEmail.Text.Trim();
             string Password = txtPassword.Password;
             string PasswordC = txtConfirmPassword.Password;
