@@ -52,8 +52,7 @@ namespace sensorX.Views
                 string.IsNullOrWhiteSpace(Password) ||
                 string.IsNullOrWhiteSpace(PasswordC))
             {
-                MessageBox.Show("Please fill in all the fields.",
-                    "Sign Up", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Please fill in all the fields.","Sign Up", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
