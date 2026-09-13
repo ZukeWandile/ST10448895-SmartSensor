@@ -1,9 +1,20 @@
-﻿using sensorX.Models;
+﻿using System.Collections.Generic;
+using sensorX.Models;
 
 namespace sensorX.Services
 {
     public class MotionPathAnalyzer
     {
+        // Overload: accepts a List<MotionPoint> instead of a single MotionPoint.
+        // It simply finds the most recent point and hands off to the other version below.
+        public double CalculateDistance(List<MotionPoint> points)
+        {
+            if (points == null || points.Count == 0)
+                return 0;
+
+            return CalculateDistance(points[^1]);
+        }
+
         public double CalculateDistance(MotionPoint point)
         {
             // Base case
